@@ -30,36 +30,6 @@ html {
                     }
                     span element.name
                 }
-                /***
-                p {
-                    b "Definition: "
-                    span(element.definition)
-                }
-                table {
-                    tr {
-                        td { b 'Same as' }
-                        if (element.sameAs.size() == 0) {
-                            td "Nothing"
-                        }
-                        else {
-                            td { element.sameAs.collect { a(href:it, it) }.join(", ") }
-                        }
-                    }
-                    tr {
-                        td { b 'Similar to' }
-                        if (element.similarTo.size() == 0) {
-                            td 'Nothing'
-                        }
-                        else {
-                            td { element.similarTo.collect { a(href:it, it) }.join(", ") }
-                        }
-                    }
-                    tr {
-                        td { b 'URI'}
-                        td element.uri
-                    }
-                }
-                ***/
                 br()
                 table {
                     tr {
@@ -88,9 +58,7 @@ html {
                     }
                 }
 
-                //def parent = element.parent
                 boolean headline = true
-                /* h1 "Metadata" */
                 def node = element
                 while (node) {
                     if (node.metadata.size() > 0) {
@@ -127,12 +95,10 @@ html {
                     node = elements[node.parent]
                 }
 
-                /* h1 "Properties" */
                 headline = true
                 node = element
                 while (node) {
                     if (node.properties.size() > 0) {
-//                        String link = "<a href='${element.name}'>${element.name}</a>"
                         if (headline) {
                             h1 'Properties'
                             headline = false

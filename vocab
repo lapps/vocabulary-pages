@@ -6,8 +6,6 @@ set -e
 # below if needed.
 #
 MEMSIZE=4G
-#VERSION=__VERSION__
-#JAR=$HOME/bin/vocab-$VERSION.jar
 JAR=vocab-1.1.1.jar
 
 if [ "$1" = "-default" ] ; then
@@ -16,7 +14,7 @@ if [ "$1" = "-default" ] ; then
     else
         output=$2
     fi
-    java -jar $JAR -d lapps.vocab -i index.groovy -h template.groovy -o $output
+    java -jar $JAR -d lapps.vocab -i index.groovy -h element.groovy -o $output
     exit
 fi
 

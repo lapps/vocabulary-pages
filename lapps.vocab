@@ -219,7 +219,7 @@ element {
 
 element {
 	name "Constituent"
-	parent "Span"
+	parent "Markable"
 	definition "A constituent of a phrase structure (parse tree)."
 	uri "$vocab/Constituent"
 	properties {
@@ -227,10 +227,12 @@ element {
 			type "String or URI"
 			description "A category label."
 		}
+		/*
 		children {
 			type "List of IDs"
 			description "The children (if any) of this constituent. The children are typically other Constituent annotations or Tokens."
 		}
+		*/
 	}
 }
 

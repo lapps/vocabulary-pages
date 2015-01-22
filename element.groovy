@@ -96,11 +96,13 @@ html {
                     if (node.metadata.size() > 0) {
                         if (headline) {
                             // The headline only gets printed if there are metadata attributes defined.
-                            h1 "Metadata"
+                            println "h2 Metadata"
+                            h2 "Metadata"
                             headline = false
                         }
                         if (node.name != element.name) {
-                            h2 {
+                        	println "h3 ${node.name}"
+                            h3 {
                                 span "Metadata from "
                                 a(href: "${node.name}.html", node.name)
                             }
@@ -134,11 +136,11 @@ html {
                     if (node.properties.size() > 0) {
 //                        String link = "<a href='${element.name}'>${element.name}</a>"
                         if (headline) {
-                            h1 'Properties'
+                            h2 'Properties'
                             headline = false
                         }
                         if (node.name != element.name) {
-                            h2 {
+                            h3 {
                                 span "Properties from "
                                 a(href:"${node.name}.html", node.name)
                             }

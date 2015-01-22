@@ -33,7 +33,7 @@ html {
                 br()
                 table {
                     tr {
-                        td(class:'fixed') { b 'Definition' }
+                        td(class:'definition') { b 'Definition' }
                         td element.definition
                     }
                     if (element.sameAs.size() > 0) {
@@ -54,7 +54,8 @@ html {
                     }
                     tr {
                         td { b "URI" }
-                        td element.uri
+                        //td element.uri
+                        td "http://vocab.lappsgrid.org/${element.name}"
                     }
                 }
 
@@ -64,11 +65,11 @@ html {
                     if (node.metadata.size() > 0) {
                         if (headline) {
                             // The headline only gets printed if there are metadata attributes defined.
-                            h1 "Metadata"
+                            h2 "Metadata"
                             headline = false
                         }
                         if (node.name != element.name) {
-                            h2 {
+                            h3 {
                                 span "Metadata from "
                                 a(href: "${node.name}.html", node.name)
                             }
@@ -100,11 +101,11 @@ html {
                 while (node) {
                     if (node.properties.size() > 0) {
                         if (headline) {
-                            h1 'Properties'
+                            h2 'Properties'
                             headline = false
                         }
                         if (node.name != element.name) {
-                            h2 {
+                            h3 {
                                 span "Properties from "
                                 a(href:"${node.name}.html", node.name)
                             }

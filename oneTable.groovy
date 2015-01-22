@@ -33,7 +33,7 @@ html {
                 br()
                 table {
                     tr {
-                        td(class:'fixed') { b 'Definition' }
+                        td(class:'definition') { b 'Definition' }
                         td element.definition
                     }
                     if (element.sameAs.size() > 0) {
@@ -54,7 +54,8 @@ html {
                     }
                     tr {
                         td { b "URI" }
-                        td element.uri
+                        //td element.uri
+                        td "http://vocab.lappsgrid.org/${element.name}"
                     }
                 }
 
@@ -74,7 +75,7 @@ html {
 								}
 								else {
 									td {
-										mkp.yieldUnescaped "${name} (from <a href='${node.name}.html'>${node.name}</a>)"
+										mkp.yieldUnescaped "${name} : <a href='${node.name}.html'>${node.name}</a>"
 									}
 								}
 								td property.type
@@ -104,7 +105,7 @@ html {
 								}
 								else {
 									td {
-										mkp.yieldUnescaped "${name} (from <a href='${node.name}.html'>${node.name}</a>)"
+										mkp.yieldUnescaped "${name} : <a href='${node.name}.html'>${node.name}</a>"
 									}
 								}
 								td property.type

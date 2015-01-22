@@ -95,6 +95,7 @@ element {
             description "Sub-type information such as date, datetime, time, etc. Ideally a URI referencing a pre-defined descriptor."
         }
     }
+    uri "$vocab/Date"
 }
 
 element {

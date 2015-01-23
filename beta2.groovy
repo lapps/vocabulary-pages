@@ -5,6 +5,12 @@
  * 2. elements: a HashMap used to map element names to their ElementDelegate object.
  * 3. parents: the names all parents of this element.
  */
+def vocab = { name ->
+	builder.td {
+		a(href:'#', "http://vocab.lappsgrid.org/${name}")
+	}
+}
+
 html {
     head {
         title element.name
@@ -55,7 +61,7 @@ html {
                     tr {
                         td { b "URI" }
                         //td element.uri
-                        td "http://vocab.lappsgrid.org/${element.name}"
+                        vocab element.name
                     }
                 }
 

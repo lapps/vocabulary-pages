@@ -5,12 +5,6 @@
  * 2. elements: a HashMap used to map element names to their ElementDelegate object.
  * 3. parents: the names all parents of this element.
  */
-def vocab_link = { name ->
-	builder.td {
-		a(href:"#", "http://vocab.lappsgrid.org/${name}")
-	}
-} 
-
 html {
     head {
         title element.name
@@ -61,73 +55,85 @@ html {
                     tr {
                         td { b "URI" }
                         //td element.uri
-                        //td "http://vocab.lappsgrid.org/${element.name}"
-                        vocab_link element.name
+                        def url = "http://vocab.lappsgrid.org/${element.name}"
+                        td {
+                        	a(href:url, url)
+                        }
                     }
                 }
 
+                boolean headline = true
                 def node = element
-                h2 'Metadata'
-				table(class:'definition-table') {
-					tr {
-						th class:'fixed', "Properties"
-						th class:'fixed', "From"
-						th class:'fixed', "Type"
-						th "Description"
-					}
-					while (node) {
-						node.metadata.each { name,property ->
-							tr {
-								td name
-								if (node.name == element.name) {
-									td()
-								}
-								else {
-									td {
-										a(href:"${node.name}.html", node.name)
-									}
-								}
-								td property.type
-								td {
-									mkp.yieldUnescaped property.description
-								}
-							}
-						}
-						node = elements[node.parent]
-					}
-				}
-                /* h1 "Properties" */
+                while (node) {
+                    if (node.metadata.size() > 0) {
+                        if (headline) {
+                            // The headline only gets printed if there are metadata attributes defined.
+                            h2 "Metadata"
+                            headline = false
+                        }
+                        if (node.name != element.name) {
+                            h3 {
+                                span "Metadata from "
+                                a(href: "${node.name}.html", node.name)
+                            }
+                        }
+                        table(class: 'definition-table') {
+                            tr {
+                                th class:'fixed', "Properties"
+                                th class:'fixed', "Type"
+                                th "Description"
+                            }
+                            List names = node.metadata.keySet().asList()
+                            names.each { name ->
+                                tr {
+                                    def property = node.metadata[name]
+                                    td name
+                                    td property.type
+                                    td {
+                                        mkp.yieldUnescaped property.description
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    node = elements[node.parent]
+                }
+
+                headline = true
                 node = element
-                h2 'Properties'
-				table(class:'definition-table') {
-					tr {
-						th class:'fixed', "Properties"
-						th class:'fixed', "From"
-						th class:'fixed', "Type"
-						th "Description"
-					}
-					
-					while (node) {
-						node.properties.each { name,property ->
-							tr {
-								td name
-								if (node.name == element.name) {
-									td()
-								}
-								else {
-									td {
-										a(href:"${node.name}.html", node.name)
-									}
-								}
-								td property.type
-								td {
-									mkp.yieldUnescaped property.description
-								}
-							}
-						}
-						node = elements[node.parent]
-					}
-				}
+                while (node) {
+                    if (node.properties.size() > 0) {
+                        if (headline) {
+                            h2 'Properties'
+                            headline = false
+                        }
+                        if (node.name != element.name) {
+                            h3 {
+                                span "Properties from "
+                                a(href:"${node.name}.html", node.name)
+                            }
+                        }
+                        table(class: 'definition-table') {
+                            tr {
+                                th class:'fixed', "Properties"
+                                th class:'fixed', "Type"
+                                th "Description"
+                            }
+                            List names = node.properties.keySet().asList()
+                            names.each { name ->
+                                tr {
+                                    def property = node.properties[name]
+                                    td name
+                                    td property.type
+                                    td {
+                                        mkp.yieldUnescaped property.description
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    node = elements[node.parent]
+                }
                 br()
                 div(class:'index') {
                     span "Back to the "
@@ -135,7 +141,9 @@ html {
                 }
             }
         }
-        div(id:'footer', 'Page generated by the MarkupBuilderTemplateEngine.')
+        //div(id:'footer', 'Page generated by the MarkupBuilderTemplateEngine.')
+        def year = Calendar.getInstance().get(Calendar.YEAR)
+        mkp.yieldUnescaped "<div id='footer'>Copyright &copy; ${year} The Language Application Grid. All rights reserved.</div>"
     }
 }
 /**

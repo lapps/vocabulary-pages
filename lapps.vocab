@@ -72,6 +72,16 @@ element {
 }
 
 element {
+	name 'NounChunk'
+	parent 'Span'
+}
+
+element {
+	name 'VerbChunk'
+	parent 'Span'
+}
+	
+element {
     name "NamedEntity"
     parent "Span"
     definition "A phrase that clearly identifies an individual from others that have similar attributes, such as the name of a person, organization, location, artifact, etc. as well as temporal expressions."

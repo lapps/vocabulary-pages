@@ -6,3 +6,6 @@ pom.xml.next
 release.properties
 html/*.html
 *.zip
+*.java
+*.jar
+beta*/

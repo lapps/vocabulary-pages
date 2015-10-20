@@ -45,8 +45,8 @@ element {
 element {
 	name "Span"
 	parent "Annotation"
-	definition """An annotation over a span of text. A <tt>Span</tt> may be defined by <em>start</em>
-	 and <em>end</em> offsets or by linking to one or more <tt>Token</tt> annotations with the <em>targets</em> 
+	definition """An annotation over a span of text. A <b>Span</b> may be defined by <em>start</em>
+	 and <em>end</em> offsets or by linking to one or more <link>Token</link> annotations with the <em>targets</em> 
 	 property."""
 	properties {
 		targets {
@@ -153,6 +153,12 @@ element {
     parent "Span"
     definition "A string of one or more characters that serves as an indivisible unit for the purposes of morpho-syntactic labeling (part of speech tagging)."
     similarTo "$iso/DC-1403"
+    metadata {
+    	posTagSet {
+    		type "String or URI"
+    		description "The definition of the tag set used by the part-of-speech tagger."
+    	}
+    }
     properties {
         pos {
             type "String or URI"
@@ -184,7 +190,7 @@ element {
 	properties {
 		mentions {
 			type "List of IDs"
-			description "A list of identifiers. Each identifier points to an object of type Annotations, or a subtype thereof."
+			description "A list of identifiers. Each identifier points to an object of type <link>Annotation</link>, or a subtype thereof."
 		}
 		representative {
 			type "String"
@@ -212,7 +218,7 @@ element {
 	properties {
 		constituents {
 			type "Set of IDs"
-			description "The set of IDs for the constituent annotations."
+			description "The set of IDs for the <link>Constituent</link> annotations."
 		}
 	}
 }
@@ -220,15 +226,19 @@ element {
 element {
 	name "Constituent"
 	parent "Span"
-	definition "A constituent of a phrase structure (parse tree)."
+	definition "A constituent of a <link>PhraseStructure</link> (parse tree)."
 	properties {
 		label {
 			type "String or URI"
 			description "A category label."
 		}
+		parent {
+			type "ID"
+			description "The parent (if any) of this constituent."
+		}
 		children {
 			type "List of IDs"
-			description "The children (if any) of this constituent. The children are typically other Constituent annotations or Tokens."
+			description "The children (if any) of this constituent. The children are typically other Constituent annotations or <link>Token</link>s."
 		}
 	}
 }
@@ -257,7 +267,7 @@ element {
 
 element {
 	name "Dependency"
-	definition "A dependency in a <tt>DependencyStructure</tt>"
+	definition "A dependency in a <link>DependencyStructure</link>"
 	parent "Annotation"
 	properties {
 		governor {

@@ -45,8 +45,14 @@ element {
 element {
 	name "Span"
 	parent "Annotation"
-	definition "An annotation over a span of text."
+	definition """An annotation over a span of text. A <tt>Span</tt> may be defined by <em>start</em>
+	 and <em>end</em> offsets or by linking to one or more <tt>Token</tt> annotations with the <em>targets</em> 
+	 property."""
 	properties {
+		targets {
+			type "List of IDs"
+			description "ID values of the annotations that make up this span in the primary data."
+		}
 		start {
 			type "Integer"
 			description "The starting offset (0-based) in the primary data."
@@ -191,23 +197,19 @@ element {
 	name "Markable"
 	parent "Span"
 	definition "Annotation type used if the coreferenced item is not already wrapped in a suitable annotation type that can be referenced."
-	properties {
-		targets {
-			type "List of IDs"
-			description "ID values of the annotations that are part of this Markable annotation."
-		}
-	}
 }
 
 element {
 	name "PhraseStructure"
 	parent "Annotation"
 	definition "A container for phrase structure information."
-	properties {
+	metadata {
 		categorySet {
 			type "URI"
 			description "The URI for the category set."
 		}
+	}
+	properties {
 		constituents {
 			type "Set of IDs"
 			description "The set of IDs for the constituent annotations."
@@ -250,6 +252,22 @@ element {
 			type "Set of IDs"
 			description "The ID values of a set of annotations of type <tt>Dependency</tt>"
 		}
+	}
+}
+
+element {
+	name "Dependency"
+	definition "A dependency in a <tt>DependencyStructure</tt>"
+	parent "Annotation"
+	properties {
+		governor {
+			type "ID"
+			description "The governor of the dependency."
+		}
+		dependent {
+			type "ID"
+			description "The dependent."
+		}		
 	}
 }
 

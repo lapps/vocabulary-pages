@@ -1,3 +1,18 @@
+.fixed {
+    width: 15%;
+}
+
+.col1 {
+	width: 25%;
+}
+td {
+	vertical-align: top;
+}
+
+.definition {
+	padding-right: 10px;
+}
+
 ul.tree { list-style:none; }
 .hidden { display: none; }
 
@@ -35,8 +50,8 @@ ul.tree { list-style:none; }
 }
 
 #mainContent, #footer {
-    max-width: 960px;
-    min-width: 350px;
+    /* max-width: 960px;
+    min-width: 350px; */
     margin: 0 auto;
 }
 #footer
@@ -117,7 +132,7 @@ pre
 #pageHeader h1
 {
     color: #fff;
-    margin: 0 0 5px 20px;
+    margin: 0 0 5px 40px; 
     /* font: bold Helvetica, Arial, sans-serif; */
     font-weight: bold;
     font-family: Helvetica, Arial, sans-serif;
@@ -282,10 +297,6 @@ div.attrib
     padding-bottom: 1em;
 }
 
-.fixed {
-    width: 15%;
-}
-
 /* -- hierarchy -- */
 table.h, .h tr, .h td
 {
@@ -407,17 +418,18 @@ tbody {
     float: right;
     padding: 10px 0;
 }
-#mainContent, #footer, #pageHeader h1, .wrapper {
-    max-width: 960px;
+#mainContent, #footer, .wrapper {
+    /* max-width: 960px; */
     min-width: 350px;
     margin: 0 auto !important;
-    padding: 0 40px;
+    padding: 0 70px;
 }
 #pageHeader h1 {
     position:relative;
     top: 25px; left: -40px;
     text-shadow: 0 2px 0 #510000;
     pointer-events: none;
+    padding: 0 40px;
 }
 #selectionbar ul {
     margin: 0 auto;

@@ -2,11 +2,10 @@
 
 set -e
 
-# Startup script for the LAPPS Vocabulary processor. Change the vocab installation directory
-# below if needed.
-#
+# Startup script for the LAPPS Vocabulary processor.
+
 MEMSIZE=4G
-JAR=vocab-1.1.1.jar
+JAR=/Users/suderman/bin/vocab-1.2.0-SNAPSHOT.jar
 
 if [ "$1" = "-default" ] ; then
     if [ "$2" = "" ] ; then
@@ -14,7 +13,7 @@ if [ "$1" = "-default" ] ; then
     else
         output=$2
     fi
-    java -jar $JAR -d lapps.vocab -i index.groovy -h element.groovy -o $output
+    java -jar $JAR -d lapps.vocab -i table-index.groovy -h template.groovy -o $output
     exit
 fi
 

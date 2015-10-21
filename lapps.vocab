@@ -80,6 +80,7 @@ element {
 element {
 	name 'NounChunk'
 	parent 'Span'
+	definition "This needs a definition"
 }
 
 element {

@@ -80,11 +80,30 @@ element {
 element {
 	name 'NounChunk'
 	parent 'Span'
+	definition "The initial portion of a non-recursive noun phrase up to the head, including determiners but not including postmodifying prepositional phrases or clauses." 
 }
 
 element {
 	name 'VerbChunk'
 	parent 'Span'
+	definition "Non-recursive verb groups, which include modals, auxiliary verbs, and medial adverbs, and end at the head verb or predicate adjective."
+	properties {
+		vcType {
+			type "string or URI"
+			description "Values such as finite, non-finite, participle, modal, special (e.g., 'is going to investigate')."
+		}
+		tense {
+			type "string or URI"
+			description "Provides tense information for the verb. Example values include BeVBG, BeVBN, FutCon, HaveVBN, Pas, PasCon, PasPer, PasPerCon, Per, Pre, PreCon, PrePer, PrePerCon, SimFut, SimPas, SimPre, none"
+		}
+		voice {
+			type"string or URI"
+			description "Indicates if the verb group is active or passive. Possible values include ACTIVE, PASSIVE, or NONE"
+		}
+		neg {
+			type"string or URI"
+			description "Indicates whether or not the verb is negated. Values include YES, NO." 
+		}
 }
 	
 element {

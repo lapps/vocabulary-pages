@@ -10,6 +10,9 @@ upload:
 unpack:
 	ssh -p 22022 suderman@anc.org 'cd /home/www/anc/LAPPS/vocab ; tar xzf annotations.tgz'
 	
+java:
+	vocab -d lapps.vocab -f -j Annotations -o target
+	
 clean:
 	rm html/*.html
 	rm html/annotations.tgz
@@ -22,6 +25,7 @@ help:
 	@echo "  package - Creates a tgz archive of all html pages."
 	@echo "  upload  - Uploads the tgz archive to the vocab site."
 	@echo "  unpack  - Unpacks the tgz archive on the server."
+	@echo "  java    - Generates the Features and Annotations Java files."
 	@echo "  clean   - Removes all html pages and the tgz archive."
 	@echo
 

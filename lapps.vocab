@@ -104,6 +104,7 @@ element {
 			type"string or URI"
 			description "Indicates whether or not the verb is negated. Values include YES, NO." 
 		}
+	}
 }
 	
 element {

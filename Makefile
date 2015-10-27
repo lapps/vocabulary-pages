@@ -13,6 +13,8 @@ unpack:
 java:
 	vocab -d lapps.vocab -f -j Annotations -o target
 	
+site: pages package upload unpack
+
 clean:
 	rm html/*.html
 	rm html/annotations.tgz

@@ -51,7 +51,12 @@ element {
 	properties {
 		targets {
 			type "List of IDs"
-			description "ID values of the annotations that make up this span in the primary data."
+			description """IDs of a sequence of annotations covering the span of text 
+			referred to by this annotation. Used as an alternative to <em>start</em> 
+			and <em>end</em> to point to component annotations (e.g., a token sequence) 
+			rather than directly into primary data, or to link two or more annotations 
+			(e.g., in a coreference annotation).
+			"""
 		}
 		start {
 			type "Integer"

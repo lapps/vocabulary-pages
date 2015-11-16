@@ -117,6 +117,12 @@ element {
     parent "Span"
     definition "A phrase that clearly identifies an individual from others that have similar attributes, such as the name of a person, organization, location, artifact, etc. as well as temporal expressions."
     sameAs "$iso/DC-2275"
+    properties {
+    	category {
+    		type "String or URI"
+    		description "The type of named entity. Typically one of DATE, PERSON, ORGANIZATION, or LOCATION."
+    	}
+    }
 }
 
 element {
@@ -205,6 +211,9 @@ element {
             type "Integer"
             description "The length of the token"
         }
+        word {
+        	type "String"
+        	description "The surface string in the text covered by this Token."
     }
 }
 

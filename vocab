@@ -5,7 +5,7 @@ set -e
 # Startup script for the LAPPS Vocabulary processor.
 
 MEMSIZE=4G
-DIR=$(dirname $0)
+DIR=`dirname $0`
 JAR=$DIR/vocab-1.2.0-SNAPSHOT.jar
 
 if [ "$1" = "-default" ] ; then
@@ -14,7 +14,7 @@ if [ "$1" = "-default" ] ; then
     else
         output=$2
     fi
-    java -jar $JAR -d lapps.vocab -i index.template -h element.template -o $output
+    java -jar $JAR -d lapps.vocab -i table-index.groovy -h template.groovy -o $output
     exit
 fi
 

@@ -227,8 +227,8 @@ element {
 			description "A list of identifiers. Each identifier points to an object of type <link>Annotation</link>, or a subtype thereof."
 		}
 		representative {
-			type "String"
-			description "An identifier that point to the representative item in the coreference chain."
+			type "ID"
+			description "An identifier that points to the representative item in the coreference chain."
 		}
 	}
 }
@@ -245,14 +245,14 @@ element {
 	definition "A container for phrase structure information."
 	metadata {
 		categorySet {
-			type "URI"
+			type "String or URI"
 			description "The URI for the category set."
 		}
 	}
 	properties {
 		constituents {
 			type "Set of IDs"
-			description "The set of IDs for the <link>Constituent</link> annotations."
+			description "The set of IDs for the top-level <link>Constituent</link>s in the paarse tree."
 		}
 	}
 }
@@ -284,7 +284,7 @@ element {
 	parent "Annotation"
 	metadata {
 		dependencySet {
-			type "URI"
+			type "String or URI"
 			description "The URI for a particular set of dependency labels."
 		}
 	}
@@ -305,6 +305,10 @@ element {
 	definition "A dependency in a <link>DependencyStructure</link>"
 	parent "Annotation"
 	properties {
+		label {
+			type "String or URI"
+			description "A category label."
+		}
 		governor {
 			type "ID"
 			description "The governor of the dependency."

@@ -214,6 +214,7 @@ element {
         word {
         	type "String"
         	description "The surface string in the text covered by this Token."
+        }
     }
 }
 

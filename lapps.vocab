@@ -53,7 +53,7 @@ element {
 	properties {
 		targets {
 			type "List of IDs"
-			description """IDs of a sequence of annotations covering the span of text 
+			description """IDs of a sequence of annotations covering the region of text 
 			referred to by this annotation. Used as an alternative to <em>start</em> 
 			and <em>end</em> to point to component annotations (e.g., a token sequence) 
 			rather than directly into primary data, or to link two or more annotations 

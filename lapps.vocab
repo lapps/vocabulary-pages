@@ -43,10 +43,12 @@ element {
 }
 
 element {
-	name "Span"
+	name "Region"
 	parent "Annotation"
-	definition """An annotation over a span of text. A <b>Span</b> may be defined by <em>start</em>
-	 and <em>end</em> offsets or by linking to one or more <link>Token</link> annotations with the <em>targets</em> 
+	definition """An annotation over a region in primary data. A <b>Region</b> may be defined by pointing directly into primary data 
+	(for text, using <em>start</em> and
+	<em>end</em> offsets) or 
+	by linking to one or more other <link>Annotation</link>s with the <em>targets</em> 
 	 property."""
 	properties {
 		targets {

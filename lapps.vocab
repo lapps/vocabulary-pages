@@ -239,7 +239,7 @@ element {
 element {
 	name "Markable"
 	parent "Region"
-	definition "Annotation type used if the coreferenced item is not already wrapped in a suitable annotation type that can be referenced."
+	definition "Annotation type used if the referenced object is not already wrapped in a suitable annotation type that can be referenced."
 }
 
 element {

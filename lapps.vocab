@@ -73,7 +73,7 @@ element {
 
 element {
 	name "Sentence"
-	parent "Span"
+	parent "Region"
 	definition "A sequence of words capable of standing alone to make an assertion, ask a question, or give a command, usually consisting of a subject and a predicate containing a finite verb. "
 	sameAs "$iso/DC-1386"
 	properties {
@@ -86,13 +86,13 @@ element {
 
 element {
 	name 'NounChunk'
-	parent 'Span'
+	parent 'Region'
 	definition "The initial portion of a non-recursive noun phrase up to the head, including determiners but not including postmodifying prepositional phrases or clauses." 
 }
 
 element {
 	name 'VerbChunk'
-	parent 'Span'
+	parent 'Region'
 	definition "Non-recursive verb groups, which include modals, auxiliary verbs, and medial adverbs, and end at the head verb or predicate adjective."
 	properties {
 		vcType {
@@ -116,7 +116,7 @@ element {
 	
 element {
     name "NamedEntity"
-    parent "Span"
+    parent "Region"
     definition "A phrase that clearly identifies an individual from others that have similar attributes, such as the name of a person, organization, location, artifact, etc. as well as temporal expressions."
     sameAs "$iso/DC-2275"
     properties {
@@ -183,7 +183,7 @@ element {
 
 element {
     name "Token"
-    parent "Span"
+    parent "Region"
     definition "A string of one or more characters that serves as an indivisible unit for the purposes of morpho-syntactic labeling (part of speech tagging)."
     similarTo "$iso/DC-1403"
     metadata {
@@ -238,7 +238,7 @@ element {
 
 element {
 	name "Markable"
-	parent "Span"
+	parent "Region"
 	definition "Annotation type used if the coreferenced item is not already wrapped in a suitable annotation type that can be referenced."
 }
 
@@ -262,7 +262,7 @@ element {
 
 element {
 	name "Constituent"
-	parent "Span"
+	parent "Region"
 	definition "A constituent of a <link>PhraseStructure</link> (parse tree)."
 	uri "$vocab/Constituent"
 	properties {

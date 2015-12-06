@@ -15,10 +15,16 @@ java:
 	
 site: pages package upload unpack
 
+rdf:
+	vocab -d lapps.vocab -o target -r rdf
+	vocab -d lapps.vocab -o target -r ttl
+	vocab -d lapps.vocab -o target -r jsonld
+	
 clean:
 	rm html/*.html
 	rm html/annotations.tgz
-
+	rm -rf target
+	
 help:
 	@echo
 	@echo "GOALS"

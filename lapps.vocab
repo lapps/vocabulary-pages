@@ -340,10 +340,6 @@ element {
 	definition "A dependency in a <link>DependencyStructure</link>"
 	parent "Relation"
 	properties {
-		label {
-			type "String or URI"
-			description "A category label."
-		}
 		governor {
 			type "ID"
 			description "The governor of the dependency."

@@ -22,7 +22,7 @@ element {
 element {
 	name "Annotation"
 	parent "Thing"
-	definition "Linguistic information added to a word, phrase, clause, sentence, text, or a relation among them."
+	definition "Linguistic information added to a word, phrase, clause, sentence, document, etc., or a relation among them."
 	sameAs "$iso/DC-2318"
 	metadata {
 	    producer {
@@ -53,7 +53,7 @@ element {
 	properties {
 		targets {
 			type "List of IDs"
-			description """IDs of a sequence of annotations covering the span of text 
+			description """IDs of a sequence of annotations covering the region of primary data 
 			referred to by this annotation. Used as an alternative to <em>start</em> 
 			and <em>end</em> to point to component annotations (e.g., a token sequence) 
 			rather than directly into primary data, or to link two or more annotations 
@@ -251,7 +251,7 @@ element {
         }
         word {
         	type "String"
-        	description "The surface string in the text covered by this Token."
+        	description "The surface string in the primary data covered by this Token."
         }
     }
 }
@@ -275,7 +275,7 @@ element {
 element {
 	name "Markable"
 	parent "Region"
-	definition "Annotation type used if the coreferenced item is not already wrapped in a suitable annotation type that can be referenced."
+	definition "Annotation type used if the referenced object is not already wrapped in a suitable annotation type that can be referenced."
 }
 
 element {
@@ -405,6 +405,6 @@ element {
 
 element {
     name "AudioDocument"
-    definition "Any electronic media content consisting of text (language). A text document may consist of several physical computer files."
+    definition "Any electronic media content consisting of audio (language). An audio document may consist of several physical computer files."
     parent "Document"
 }

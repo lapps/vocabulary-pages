@@ -72,6 +72,42 @@ element {
 }
 
 element {
+	name 'Relation'
+	parent 'Annotation'
+	definition 'Definition needed.'
+	properties {
+		label {
+			type "String or URI"
+			description "A category label."
+		}
+	}
+}
+
+element {
+	name 'SemanticRole'
+	parent 'Relation'
+	definition 'Definition needed.'
+	properties {
+		head {
+			type "String or URI"
+			description """
+				Description needed.
+			"""
+		}
+		argument {
+			type 'String or URI'
+			description 'Description needed.'			
+		}
+	}
+}
+
+element {
+	name "Paragraph"
+	parent "Region"
+	definition "Definition needed."
+}
+
+element {
 	name "Sentence"
 	parent "Region"
 	definition "A sequence of words capable of standing alone to make an assertion, ask a question, or give a command, usually consisting of a subject and a predicate containing a finite verb. "
@@ -255,21 +291,17 @@ element {
 	properties {
 		constituents {
 			type "Set of IDs"
-			description "The set of IDs for the top-level <link>Constituent</link>s in the paarse tree."
+			description "The set of IDs for all of the <link>Constituent</link>s in the psarse tree."
 		}
 	}
 }
 
 element {
 	name "Constituent"
-	parent "Region"
+	parent "Relation"
 	definition "A constituent of a <link>PhraseStructure</link> (parse tree)."
 	uri "$vocab/Constituent"
 	properties {
-		label {
-			type "String or URI"
-			description "A category label."
-		}
 		parent {
 			type "ID"
 			description "The parent (if any) of this constituent."
@@ -306,7 +338,7 @@ element {
 element {
 	name "Dependency"
 	definition "A dependency in a <link>DependencyStructure</link>"
-	parent "Annotation"
+	parent "Relation"
 	properties {
 		label {
 			type "String or URI"
@@ -343,7 +375,7 @@ element {
         encoding {
             type "String or URI"
             description """The physical or digital manifestation of the resource. Encoding may be used
-                to determine the software, hardware or other equipment needed to display or operate the
+                to determine the software, hardware or other equipment  to display or operate the
                 resource. Recommended best practice is to select a value from the list of Internet Media
                 Types [http://www.iana.org/ assignments/media-types/] defining computer media formats).
                 <br/>

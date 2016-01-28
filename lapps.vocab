@@ -291,7 +291,11 @@ element {
 	properties {
 		constituents {
 			type "Set of IDs"
-			description "The set of IDs for all of the <link>Constituent</link>s in the psarse tree."
+			description "The set of IDs for all of the <link>Constituent</link>s in the parse tree."
+		}
+		root {
+			type "ID"
+			description "The ID for the <link>Constituent</link> or <link>Token<.link> that is the top of the tree."
 		}
 	}
 }

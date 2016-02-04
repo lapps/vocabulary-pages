@@ -165,7 +165,12 @@ html {
                                     td name
                                     td property.type
                                     td {
-                                        mkp.yieldUnescaped makeLinks(property.description)
+	                                    if (property.required) {
+    	                                    mkp.yieldUnescaped "${makeLinks(property.description)} <b>[Required]</b>"
+    	                                }
+    	                                else {
+    	                                    mkp.yieldUnescaped makeLinks(property.description)
+    	                                }
                                     }
                                 }
                             }

@@ -166,7 +166,7 @@ html {
                                     td property.type
                                     td {
 	                                    if (property.required) {
-    	                                    mkp.yieldUnescaped "${makeLinks(property.description)} <b>[Required]</b>"
+                                                mkp.yieldUnescaped "${makeLinks(property.description)} [Required]"
     	                                }
     	                                else {
     	                                    mkp.yieldUnescaped makeLinks(property.description)

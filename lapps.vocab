@@ -15,7 +15,6 @@ element {
 		alternateName {
 			type "String"
 			description "An alias for the item."
-			optional true
 		}
 	}
 }
@@ -65,12 +64,10 @@ element {
 		start {
 			type "Integer"
 			description "The starting offset (0-based) in the primary data."
-			required true
 		}
 		end {
 			type "Integer"
 			description "The ending offset (0-based) in the primary data."
-			optional false
 		}
 	}
 }
@@ -83,6 +80,7 @@ element {
 		label {
 			type "String or URI"
 			description "A category label."
+			required true
 		}
 	}
 }
@@ -94,13 +92,13 @@ element {
 	properties {
 		head {
 			type "String or URI"
-			description """
-				Description needed.
-			"""
+			description 'Description needed.'
+			required true
 		}
 		argument {
 			type 'String or URI'
 			description 'Description needed.'			
+			required true
 		}
 	}
 }
@@ -268,6 +266,7 @@ element {
 		mentions {
 			type "List of IDs"
 			description "A list of identifiers. Each identifier points to an object of type <link>Annotation</link>, or a subtype thereof."
+			required true
 		}
 		representative {
 			type "ID"
@@ -296,10 +295,12 @@ element {
 		constituents {
 			type "Set of IDs"
 			description "The set of IDs for all of the <link>Constituent</link>s in the parse tree."
+			required true
 		}
 		root {
 			type "ID"
 			description "The ID for the <link>Constituent</link> or <link>Token<.link> that is the top of the tree."
+			required true
 		}
 	}
 }
@@ -313,10 +314,12 @@ element {
 		parent {
 			type "ID"
 			description "The parent (if any) of this constituent."
+			required true
 		}
 		children {
 			type "List of IDs"
 			description "The children (if any) of this constituent. The children are typically other Constituent annotations or <link>Token</link>s."
+			required true
 		}
 	}
 }
@@ -339,6 +342,7 @@ element {
 		dependencies {
 			type "Set of IDs"
 			description "The ID values of a set of annotations of type <tt>Dependency</tt>"
+			required true
 		}
 	}
 }
@@ -351,10 +355,12 @@ element {
 		governor {
 			type "ID"
 			description "The governor of the dependency."
+			required true
 		}
 		dependent {
 			type "ID"
 			description "The dependent."
+			required true
 		}		
 	}
 }
@@ -367,6 +373,7 @@ element {
         id {
             type "String"
             description "A unique identifier associated with the document."
+            required true
         }
         source {
             type "String or URI"

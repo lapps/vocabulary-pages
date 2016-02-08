@@ -15,6 +15,7 @@ element {
 		alternateName {
 			type "String"
 			description "An alias for the item."
+			optional true
 		}
 	}
 }
@@ -38,6 +39,7 @@ element {
 		id {
 			type "String"
 			description "A unique identifier associated with the annotation."
+			required true
 		}
 	}
 }
@@ -63,10 +65,12 @@ element {
 		start {
 			type "Integer"
 			description "The starting offset (0-based) in the primary data."
+			required true
 		}
 		end {
 			type "Integer"
 			description "The ending offset (0-based) in the primary data."
+			optional false
 		}
 	}
 }

@@ -6,6 +6,7 @@ set -e
 
 MEMSIZE=4G
 JAR=/Users/suderman/bin/vocab-1.2.0-SNAPSHOT.jar
+JAR=vocab-1.2.0-SNAPSHOT.jar
 
 if [ "$1" = "-default" ] ; then
     if [ "$2" = "" ] ; then

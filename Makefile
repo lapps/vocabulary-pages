@@ -1,5 +1,5 @@
 pages:
-	vocab -d lapps.vocab -h element.template -i index.template -o html
+	./vocab -d lapps.vocab -h element.template -i index.template -o html
 
 package:
 	cd html ; tar czf annotations.tgz *.html	
@@ -9,22 +9,22 @@ upload:
 
 unpack:
 	ssh -p 22022 suderman@anc.org 'cd /home/www/anc/LAPPS/vocab ; tar xzf annotations.tgz'
-	
+
 java:
-	vocab -d lapps.vocab -f -j Annotations -o target
-	
+	./vocab -d lapps.vocab -f -j Annotations -o target
+
 site: pages package upload unpack
 
 rdf:
-	vocab -d lapps.vocab -o target -r rdf
-	vocab -d lapps.vocab -o target -r ttl
-	vocab -d lapps.vocab -o target -r jsonld
-	
+	./vocab -d lapps.vocab -o target -r rdf
+	./vocab -d lapps.vocab -o target -r ttl
+	./vocab -d lapps.vocab -o target -r jsonld
+
 clean:
 	rm html/*.html
 	rm html/annotations.tgz
 	rm -rf target
-	
+
 help:
 	@echo
 	@echo "GOALS"
@@ -37,4 +37,3 @@ help:
 	@echo "  clean   - Removes all html pages and the tgz archive."
 	@echo
 
- 

@@ -2,7 +2,7 @@ pages:
 	./vocab -d lapps.vocab -h element.template -i index.template -o html
 
 package:
-	cd html ; tar czf annotations.tgz *.html	
+	cd html ; tar czf annotations.tgz *.css *.html	
 
 upload:
 	anc-put html/annotations.tgz /home/www/anc/LAPPS/vocab

@@ -405,6 +405,11 @@ tbody {
     clear: both;
     padding-top: 4em;
 }
+.required
+{
+	text-align: right;
+	float: right;
+}
 .version
 {
     color: #BFC3C7;
@@ -413,6 +418,7 @@ tbody {
     clear: both;
     padding-top: 1em;
 }
+
 #selectionbar ul
 {
     float: right;

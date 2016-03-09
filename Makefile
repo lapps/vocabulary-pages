@@ -6,7 +6,15 @@ package:
 
 upload:
 	anc-put html/annotations.tgz /home/www/anc/LAPPS/vocab
-
+	anc-put target/lapps-vocabulary.rdf /home/www/anc/LAPPS/vocab
+	anc-put target/lapps-vocabulary.owl /home/www/anc/LAPPS/vocab
+	anc-put target/lapps-vocabulary.jsonld /home/www/anc/LAPPS/vocab
+	anc-put target/lapps-vocabulary.ttl /home/www/anc/LAPPS/vocab
+	anc-put target/lapps-vocabulary.rdf /home/www/anc/LAPPS/vocab/index.rdf
+	anc-put target/lapps-vocabulary.owl /home/www/anc/LAPPS/vocab/index.owl
+	anc-put target/lapps-vocabulary.jsonld /home/www/anc/LAPPS/vocab/index.jsonld
+	anc-put target/lapps-vocabulary.ttl /home/www/anc/LAPPS/vocab/index.ttl
+	
 unpack:
 	ssh -p 22022 suderman@anc.org 'cd /home/www/anc/LAPPS/vocab ; tar xzf annotations.tgz'
 
@@ -15,10 +23,19 @@ java:
 
 site: pages package upload unpack
 
+owl:
+	./vocab -d lapps.vocab -o target -r owl
+	
 rdf:
 	./vocab -d lapps.vocab -o target -r rdf
+	
+ttl:
 	./vocab -d lapps.vocab -o target -r ttl
+	
+jsonld:
 	./vocab -d lapps.vocab -o target -r jsonld
+
+rdf-all: owl ttl jsonld
 
 clean:
 	rm html/*.html

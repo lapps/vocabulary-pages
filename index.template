@@ -4,6 +4,12 @@
  *
  */
 
+VOCAB="http://vocab.lappsgrid.org/lapps-vocabulary"
+RDF="${VOCAB}.rdf"
+OWL="${VOCAB}.owl"
+JSONLD="${VOCAB}.jsonld"
+TTL="${VOCAB}.ttl"
+
 printTable = { node ->
     builder.table(class:'h') {
         tr {
@@ -86,6 +92,13 @@ html {
                  Hierarchy below contains all of the elements for which specifications
                  have been finalized so far. Detailed information is available by
                  clicking on the relevant element."""
+            p "RDF versions of the vocabulary are available in the following formats:"
+            ul {
+            	li { a(href:RDF, RDF) }
+            	li { a(href:OWL, OWL) }
+            	li { a(href:JSONLD, JSONLD) }
+            	li { a(href:TTL, TTL) }
+            }
             br()
             h1 "LAPPS Exchange Vocabulary Type Hierarchy"
             roots.each { root ->

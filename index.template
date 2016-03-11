@@ -99,6 +99,8 @@ html {
             	li { a(href:JSONLD, JSONLD) }
             	li { a(href:TTL, TTL) }
             }
+            p "The RDF versions can also be obtained by specifying the appropriate Accept: header:"
+            pre 'curl -H "Accept: application/rdf+xml" http://vocab.lappsgrid.org'
             br()
             h1 "LAPPS Exchange Vocabulary Type Hierarchy"
             roots.each { root ->

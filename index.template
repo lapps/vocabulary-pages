@@ -92,14 +92,15 @@ html {
                  Hierarchy below contains all of the elements for which specifications
                  have been finalized so far. Detailed information is available by
                  clicking on the relevant element."""
-            p "RDF versions of the vocabulary are available in the following formats:"
+            p "The vocabulary is available in the following formats:"
             ul {
-            	li { a(href:RDF, RDF) }
-            	li { a(href:OWL, OWL) }
-            	li { a(href:JSONLD, JSONLD) }
-            	li { a(href:TTL, TTL) }
+            	li { a(href:RDF, "RDF") }
+            	li { a(href:OWL, "OWL") }
+            	li { a(href:JSONLD, "JSONLD") }
+            	li { a(href:TTL, "TTL") }
             }
-            p "The RDF versions can also be obtained by specifying the appropriate Accept: header:"
+            //p "The RDF/XML and JSON-LD versions can also be obtained by specifying the appropriate Accept header in the HTTP request:"
+            mkp.yieldUnescaped "The RDF/XML and JSON-LD versions can also be obtained by specifying the appropriate <em>Accept</em> header in the HTTP request:"
             pre 'curl -H "Accept: application/rdf+xml" http://vocab.lappsgrid.org'
             br()
             h1 "LAPPS Exchange Vocabulary Type Hierarchy"

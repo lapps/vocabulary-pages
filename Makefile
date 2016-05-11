@@ -21,7 +21,7 @@ unpack:
 java:
 	./vocab -d lapps.vocab -f -j Annotations -o target
 
-site: pages package upload unpack
+site: pages rdf-all package upload unpack
 
 owl:
 	./vocab -d lapps.vocab -o target -r owl
@@ -35,7 +35,7 @@ ttl:
 jsonld:
 	./vocab -d lapps.vocab -o target -r jsonld
 
-rdf-all: owl ttl jsonld
+rdf-all: owl rdf ttl jsonld
 
 clean:
 	rm html/*.html

@@ -349,6 +349,12 @@ tbody {
     font-size: small;
 }
 
+pre {
+	font-size: small;
+	background-color: #dddddd;
+	border-radius: 5px;
+}
+
 #element
 {
     font-size: x-large;

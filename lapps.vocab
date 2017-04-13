@@ -86,18 +86,36 @@ element {
 }
 
 element {
+	name 'GenericRelation'
+	parent 'Relation'
+	definition 'Any relation involving one or more arguments.'
+	properties {
+		relation {
+			type "ID"
+			description 'The head of the relation.'
+			required true
+		}
+		arguments {
+			type 'List of IDs'
+			description 'The arguments of the relation.'
+			required true
+		}
+	}
+}
+
+element {
 	name 'SemanticRole'
 	parent 'Relation'
-	definition 'Definition needed.'
+	definition 'The underlying relationship that a participant has with the main predicate in a clause.'
 	properties {
 		head {
-			type "String or URI"
-			description 'Description needed.'
+			type "ID"
+			description 'The predicate.'
 			required true
 		}
 		argument {
-			type 'String or URI'
-			description 'Description needed.'			
+			type 'ID'
+			description 'The element that fulfills the role relative to the predicate.'
 			required true
 		}
 	}

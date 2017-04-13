@@ -19,8 +19,9 @@ unpack:
 	ssh -p 22022 suderman@anc.org 'cd /home/www/anc/LAPPS/vocab ; tar xzf annotations.tgz'
 
 java:
-	./vocab -d lapps.vocab -f -j Annotations -o target
-
+	./vocab -d lapps.vocab -p org.lappsgrid.vocabulary -j Annotations -o target
+	./vocab -d lapps.vocab -f -o target
+	
 site: pages rdf-all package upload unpack
 
 owl:

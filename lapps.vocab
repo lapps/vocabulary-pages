@@ -6,6 +6,7 @@
 schema="http://schema.org"
 vocab="http//vocab.lappsgrid.org"
 iso="http://www.isocat.org/datcat"
+version='1.1.0'
 
 element {
 	name "Thing"
@@ -189,12 +190,16 @@ element {
     definition "A reference to a date or period."
     similarTo "http://schema.org/Date"
     sameAs "$iso/DC-6123"
+    deprecated '''Please use NamedEntity with an appropriate @type attribute. This
+        annotation type will be removed in a future version of the vocabulary.
+        '''
     properties {
         dateType {
             type "String or URI"
             description "Sub-type information such as date, datetime, time, etc. Ideally a URI referencing a pre-defined descriptor."
         }
     }
+    deprecated "Will be removed in version 2.0.0"
 }
 
 element {
@@ -202,6 +207,9 @@ element {
     parent "NamedEntity"
     definition "Name of politically or geographically defined location (cities, provinces, countries, international regions, bodies of water, mountains,named regions, etc.)"
     sameAs "$iso/DC-4339", "$schema/Location"
+    deprecated '''Please use NamedEntity with an appropriate @type attribute. This
+        annotation type will be removed in a future version of the vocabulary.
+        '''
     properties {
         locType {
             type "String or URI"
@@ -215,6 +223,9 @@ element {
     parent "NamedEntity"
     definition "A named corporate, governmental, educational, religious, political, or other organizational entity."
     sameAs "$iso/DC-2979", "$schema/Organization"
+    deprecated '''Please use NamedEntity with an appropriate @type attribute. This
+        annotation type will be removed in a future version of the vocabulary.
+        '''
     properties {
         orgType {
             type "String or URI"
@@ -229,6 +240,9 @@ element {
     definition "The name of a person or family."
     sameAs "$iso/DC-2978"
     similarTo "$schema/Person"
+    deprecated '''Please use NamedEntity with an appropriate @type attribute. This
+        annotation type will be removed in a future version of the vocabulary.
+        '''
     properties {
         gender {
             type "String or URI"

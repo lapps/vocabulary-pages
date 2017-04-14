@@ -8,6 +8,12 @@ vocab="http//vocab.lappsgrid.org"
 iso="http://www.isocat.org/datcat"
 version='1.1.0'
 
+// Message to be displayed for deprecated named entities.
+NE_DEPRECATED = '''Use <link>NamedEntity</link> with appropriate @category and 
+	@type attributes instead. This annotation type will be removed in a future 
+	version of the vocabulary.        
+'''
+        
 element {
 	name "Thing"
 	definition "The most generic specification."
@@ -208,9 +214,7 @@ element {
     definition "A reference to a date or period."
     similarTo "http://schema.org/Date"
     sameAs "$iso/DC-6123"
-    deprecated '''Please use <link>NamedEntity</link> with appropriate @category and @type attributes. This
-        annotation type will be removed in a future version of the vocabulary.
-        '''
+    deprecated NE_DEPRECATED
     properties {
         dateType {
             type "String or URI"
@@ -224,9 +228,7 @@ element {
     parent "NamedEntity"
     definition "Name of politically or geographically defined location (cities, provinces, countries, international regions, bodies of water, mountains,named regions, etc.)"
     sameAs "$iso/DC-4339", "$schema/Location"
-    deprecated '''Please use <link>NamedEntity</link> with appropriate @category and @type attributes. This
-        annotation type will be removed in a future version of the vocabulary.
-        '''
+    deprecated NE_DEPRECATED
     properties {
         locType {
             type "String or URI"
@@ -240,9 +242,7 @@ element {
     parent "NamedEntity"
     definition "A named corporate, governmental, educational, religious, political, or other organizational entity."
     sameAs "$iso/DC-2979", "$schema/Organization"
-    deprecated '''Please use <link>NamedEntity</link> with appropriate @category and @type attributes. This
-        annotation type will be removed in a future version of the vocabulary.
-        '''
+    deprecated NE_DEPRECATED
     properties {
         orgType {
             type "String or URI"
@@ -257,9 +257,7 @@ element {
     definition "The name of a person or family."
     sameAs "$iso/DC-2978"
     similarTo "$schema/Person"
-    deprecated '''Please use <link>NamedEntity</link> with appropriate @category and @type attributes. This
-        annotation type will be removed in a future version of the vocabulary.
-        '''
+    deprecated NE_DEPRECATED
     properties {
         gender {
             type "String or URI"

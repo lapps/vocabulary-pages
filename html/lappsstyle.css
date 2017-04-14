@@ -27,6 +27,8 @@ ul.tree { list-style:none; }
     font-size: 110%;
     margin-bottom: 1em;
 }
+.deprecated { text-decoration: line-through; }
+
 
 /* -- page structure -- */
 #container
@@ -141,6 +143,7 @@ pre
 #pageHeader h2 {
     color: #fff;
     margin-left: 40px;
+    text-shadow: 0 2px 0 #510000;
 }
 
 #pageHeader a:link, #pageHeader a:hover, #pageHeader a:visited
@@ -342,11 +345,6 @@ a.inherited-property:hover {color:gray;text-decoration:none;}
 a.sameas:link {color:#336699;text-decoration:none;}
 a.sameas:visited {color:#336699;text-decoration:none;}
 a.sameas:hover {color:gray;text-decoration:none;}
-
-.deprecated { text-decoration: line-through; }
-.deprecated:link {color:#336699;text-decoration:line-through;}
-.deprecated:visited {color:#336699;text-decoration:line-through;}
-.deprecated:hover {color:gray;text-decoration:none;}
 
 #arial1 {
     font-family: Arial, Helvetica, sans-serif;

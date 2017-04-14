@@ -20,6 +20,9 @@ printTable = { node ->
                 else {
                     a(href:"${node.name}.html", node.name)
                 }
+				if (node.deprecated) {
+					span ' [deprecated]'
+				}
             }
         }
         if (node.children.size() > 0) {
@@ -46,6 +49,9 @@ printNode = { node ->
             }
             else {
                 a(href:"${node.name}.html", node.name)
+            }
+            if (node.deprecated) {
+            	span ' [deprecated]'
             }
         }
     }
@@ -75,7 +81,7 @@ html {
         div(id:'container') {
             div(id: 'intro') {
                 div(id: 'pageHeader') {
-                    h1 "LAPPS Web Service Exchange Vocabulary"
+                    h1 "LAPPS Web Service Exchange Vocabulary v${version}"
                 }
             }
         }

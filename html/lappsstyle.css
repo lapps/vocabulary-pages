@@ -138,6 +138,17 @@ pre
     font-family: Helvetica, Arial, sans-serif;
     letter-spacing: -1px;
 }
+#pageHeader h2
+{
+    color: #fff;
+    margin: 0 0 5px 40px; 
+    /* font: bold Helvetica, Arial, sans-serif; */
+    font-weight: bold;
+    font-family: Helvetica, Arial, sans-serif;
+    letter-spacing: -1px;
+}
+
+
 #pageHeader a:link, #pageHeader a:hover, #pageHeader a:visited
 {
     color: #fff;

@@ -181,6 +181,10 @@ element {
     		type "String or URI"
     		description "The type of named entity. Typically one of DATE, PERSON, ORGANIZATION, or LOCATION."
     	}
+    	type {
+    		type "String or URI"
+    		description "A type attribute for the entity. For example the type of location or organization."
+    	}
     }
 }
 
@@ -190,7 +194,7 @@ element {
     definition "A reference to a date or period."
     similarTo "http://schema.org/Date"
     sameAs "$iso/DC-6123"
-    deprecated '''Please use NamedEntity with an appropriate @type attribute. This
+    deprecated '''Please use NamedEntity with appropriate @category and @type attributes. This
         annotation type will be removed in a future version of the vocabulary.
         '''
     properties {
@@ -199,7 +203,6 @@ element {
             description "Sub-type information such as date, datetime, time, etc. Ideally a URI referencing a pre-defined descriptor."
         }
     }
-    deprecated "Will be removed in version 2.0.0"
 }
 
 element {
@@ -207,7 +210,7 @@ element {
     parent "NamedEntity"
     definition "Name of politically or geographically defined location (cities, provinces, countries, international regions, bodies of water, mountains,named regions, etc.)"
     sameAs "$iso/DC-4339", "$schema/Location"
-    deprecated '''Please use NamedEntity with an appropriate @type attribute. This
+    deprecated '''Please use NamedEntity with appropriate @category and @type attributes. This
         annotation type will be removed in a future version of the vocabulary.
         '''
     properties {
@@ -223,7 +226,7 @@ element {
     parent "NamedEntity"
     definition "A named corporate, governmental, educational, religious, political, or other organizational entity."
     sameAs "$iso/DC-2979", "$schema/Organization"
-    deprecated '''Please use NamedEntity with an appropriate @type attribute. This
+    deprecated '''Please use NamedEntity with appropriate @category and @type attributes. This
         annotation type will be removed in a future version of the vocabulary.
         '''
     properties {
@@ -240,7 +243,7 @@ element {
     definition "The name of a person or family."
     sameAs "$iso/DC-2978"
     similarTo "$schema/Person"
-    deprecated '''Please use NamedEntity with an appropriate @type attribute. This
+    deprecated '''Please use NamedEntity with appropriate @category and @type attributes. This
         annotation type will be removed in a future version of the vocabulary.
         '''
     properties {

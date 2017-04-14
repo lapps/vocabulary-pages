@@ -1,5 +1,5 @@
 pages:
-	./vocab -d lapps.vocab -h element.template -i index.template -o html
+	./vocab -h element.template -i index.template -o html lapps.vocab 
 
 package:
 	cd html ; tar czf annotations.tgz *.css *.html	
@@ -19,22 +19,22 @@ unpack:
 	ssh -p 22022 suderman@anc.org 'cd /home/www/anc/LAPPS/vocab ; tar xzf annotations.tgz'
 
 java:
-	./vocab -d lapps.vocab -p org.lappsgrid.vocabulary -j Annotations -o target
-	./vocab -d lapps.vocab -f -o target
+	./vocab -p org.lappsgrid.vocabulary -j Annotations -o target lapps.vocab 
+	./vocab -f -o target lapps.vocab 
 	
 site: pages rdf-all package upload unpack
 
 owl:
-	./vocab -d lapps.vocab -o target -r owl
+	./vocab -o target -r owl lapps.vocab 
 	
 rdf:
-	./vocab -d lapps.vocab -o target -r rdf
+	./vocab -o target -r rdf lapps.vocab 
 	
 ttl:
-	./vocab -d lapps.vocab -o target -r ttl
+	./vocab -o target -r ttl lapps.vocab 
 	
 jsonld:
-	./vocab -d lapps.vocab -o target -r jsonld
+	./vocab -o target -r jsonld lapps.vocab 
 
 rdf-all: owl rdf ttl jsonld
 

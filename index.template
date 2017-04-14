@@ -14,15 +14,27 @@ printTable = { node ->
     builder.table(class:'h') {
         tr {
             td(class:'tc', colspan:4) {
-                if (node.properties) {
-                    mkp.yieldUnescaped "<a href='${node.name}.html'>${node.name}</a>: <span>${node.properties}</span>"
-                }
-                else {
-                    a(href:"${node.name}.html", node.name)
-                }
-				if (node.deprecated) {
-					span ' [deprecated]'
+            	if (node.deprecated) {
+            		span(class:'deprecated') {
+						if (node.properties) {
+							mkp.yieldUnescaped "<a href='${node.name}.html'>${node.name}</a>: <span>${node.properties}</span>"
+						}
+						else {
+							a(href:"${node.name}.html", node.name)
+						}
+            		}
+            	}
+            	else {
+					if (node.properties) {
+						mkp.yieldUnescaped "<a href='${node.name}.html'>${node.name}</a>: <span>${node.properties}</span>"
+					}
+					else {
+						a(href:"${node.name}.html", node.name)
+					}
 				}
+				//if (node.deprecated) {
+				//	span ' [deprecated]'
+				//}
             }
         }
         if (node.children.size() > 0) {
@@ -43,7 +55,12 @@ printTable = { node ->
 // Recursively prints a node and all its children.
 printNode = { node ->
     if (node.children.size() == 0) {
-        builder.li {
+    	def style = ''
+    	if (node.deprecated) {
+    		println "${node.name} is deprecated."
+    		style = 'class="deprecated"'
+    	}
+        builder.li(style) {
             if (node.properties) {
                 mkp.yieldUnescaped "<a href='${node.name}.html'>${node.name}</a>: <span class='property'>${node.properties}</span>"
             }
@@ -81,7 +98,8 @@ html {
         div(id:'container') {
             div(id: 'intro') {
                 div(id: 'pageHeader') {
-                    h1 "LAPPS Web Service Exchange Vocabulary v${version}"
+                    h1 "LAPPS Web Service Exchange Vocabulary"
+                    h2 "version $version"
                 }
             }
         }

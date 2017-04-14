@@ -19,7 +19,8 @@ html {
         div(id:'container') {
             div(id:'intro') {
                 div(id:'pageHeader') {
-                    h1 "LAPPS Web Service Exchange Vocabulary v${version}"
+                    h1 "LAPPS Web Service Exchange Vocabulary"
+                    h2 "version $version"
                 }
             }
             div(id:'mainContent') {
@@ -35,14 +36,23 @@ html {
                     }
                     span element.name
                 }
+				if (element.deprecated) {
+					h1 'Deprecated'
+					p { 
+						mkp.yieldUnescaped makeLinks(element.deprecated)
+					}
+					
+				}
                 br()
                 table {
+                	/************
                     if (element.deprecated) {
                     	tr {
                     		td { b "DEPRECATED" }
                     		td element.deprecated
                     	}
                     }
+                    *************/
                     tr {
                         td(class:'fixed') { b 'Definition' }
                         td {

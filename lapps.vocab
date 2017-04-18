@@ -6,6 +6,7 @@
 schema="http://schema.org"
 vocab="http//vocab.lappsgrid.org"
 iso="http://www.isocat.org/datcat"
+
 version='1.1.0'
 
 // Message to be displayed for deprecated named entities.

@@ -13,7 +13,7 @@ makeLinks = { String text ->
 html {
     head {
         title element.name
-        link rel:'stylesheet', type:'text/css', href:'lappsstyle.css'
+        link rel:'stylesheet', type:'text/css', href:'css/lappsstyle.css'
     }
     body {
         div(id:'container') {

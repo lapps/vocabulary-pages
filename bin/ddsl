@@ -2,8 +2,6 @@
 
 set -e
 
-VERSION=`cat VERSION.discriminator`
-
 # Startup script for the LAPPS Vocabulary processor.
 
 # Jump through hoops to find the directory where this command is installed. The
@@ -18,6 +16,6 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 MEMSIZE=4G
-JAR=discriminator-$VERSION.jar
+JAR=discriminator-1.1.0-SNAPSHOT.jar
 
 java -jar $DIR/$JAR $@

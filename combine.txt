@@ -1,3 +1,0 @@
-The branch is used to work on combining the vocabulary DSL with discriminator DSL so that both can be updated from a single location.
-
-When complete this branch should be merged back into the 1.1.0 branch.

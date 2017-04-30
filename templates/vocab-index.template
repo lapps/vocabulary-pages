@@ -83,7 +83,7 @@ printNode = { node ->
 html {
     head {
         title 'LAPPS Type Hierarchy'
-        link rel:'stylesheet', type:'text/css', href:'lappsstyle.css'
+        link rel:'stylesheet', type:'text/css', href:'css/lappsstyle.css'
         script(src:'js/jquery-1.11.1.js', type:'text/javascript', language:'javascript', "")
         script (type:'text/javascript', """
             \$(document).ready(function() {

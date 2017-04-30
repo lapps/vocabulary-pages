@@ -10,7 +10,7 @@ html {
         div(id:'intro') {
             div(id:'pageHeader') {
                 h1 'LAPPS Web Service URI Inventory'
-                h2 "${page.name}"
+                h2 "${page.name} v${version}"
             }
         }
         div(id:'mainContent') {

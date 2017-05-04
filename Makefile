@@ -22,7 +22,7 @@ help:
 	@echo "clean      - Removes all html pages and the tgz archive."
 	@echo "help       - Displays this help message." 
 	@echo 
-	@echo "EXPERIMENTAL
+	@echo "EXPERIMENTAL"
 	@echo
 	@echo "copy       - Copies the Java files to their project directories."
 	@echo "upload     - Uploads the html files to the vocabulary web site."
@@ -41,7 +41,7 @@ java:
 	./bin/vocab  --java Annotations --package org.lappsgrid.vocabulary --output target $(VOCABULARY)
 	./bin/vocab --features --output target $(VOCABULARY)
 	./bin/ddsl --java $(DISCRIMINATORS)
-	
+
 rdf:
 	./bin/vocab --output target --rdf rdf $(VOCABULARY) 
 	./bin/vocab --output target --rdf owl $(VOCABULARY) 
@@ -59,7 +59,7 @@ upload:
 	cd target ; tar czf annotations.tgz *.html ns js css
 	anc-put target/annotations.tgz $(REMOTE)
 	ssh -p 22022 suderman@anc.org "cd "$(REMOTE)" ; tar xzf annotations.tgz"
-	
+
 upload-rdf:
 	anc-put target/lapps-vocabulary.rdf $(REMOTE)
 	anc-put target/lapps-vocabulary.owl $(REMOTE)
@@ -72,4 +72,3 @@ upload-rdf:
 
 clean:
 	rm -rf target
-

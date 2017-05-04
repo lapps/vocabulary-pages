@@ -17,15 +17,15 @@ help:
 	@echo "vocabulary - Creates vocab component of the discriminators"
 	@echo "html       - Creates all HTML pages for the vocab web site"
 	@echo "java       - Generate Java classes for vocabulary and discriminators."
-	@echo "rdf-all    - Generates RDF, OWL, and JSON versions of the vocabulary"
+	@echo "rdf        - Generates RDF, OWL, and JSON versions of the vocabulary"
 	@echo "all        - Does everything."
 	@echo "clean      - Removes all html pages and the tgz archive."
 	@echo "help       - Displays this help message." 
 	@echo 
 	@echo "EXPERIMENTAL
 	@echo
-	@echo "copy       - Copies the Java source files to their projects."
-	@echo "upload     - Uploads the html files to the web site."
+	@echo "copy       - Copies the Java files to their project directories."
+	@echo "upload     - Uploads the html files to the vocabulary web site."
 	@echo
 
 vocabulary: 
@@ -48,7 +48,7 @@ rdf:
 	./bin/vocab --output target --rdf ttl $(VOCABULARY) 
 	./bin/vocab --output target --rdf jsonld $(VOCABULARY) 
 
-all: vocabulary html java rdf-all
+all: vocabulary html java rdf
 
 copy:
 	cp target/Discriminators.java $(DISCRIMINATOR_PACKAGE)

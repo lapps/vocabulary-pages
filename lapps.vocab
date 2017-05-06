@@ -35,6 +35,10 @@ Annotation {
 	        type "List of URI"
 	        description "The documentation (if any) for the rules that were used to identify the annotations."
 	    }
+	    type {
+	    	type "String"
+	    	description "The value type of the annotations produced."
+	    }
 	}
 	properties {
 		id {

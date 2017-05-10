@@ -56,7 +56,9 @@ copy:
 	cp target/Features.java $(VOCABULARY_PACKAGE)
 
 upload:
+	if [ -d target/beta ] ; then mv target/beta/ns target/ns ; fi
 	cd target ; tar czf annotations.tgz *.html ns js css
+	#find target -type f | grep -v config | grep -v .java | sed 's|target/||' | tar czf annotations.tgz -C target/ -T -
 	anc-put target/annotations.tgz $(REMOTE)
 	ssh -p 22022 suderman@anc.org "cd "$(REMOTE)" ; tar xzf annotations.tgz"
 

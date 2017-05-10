@@ -1,0 +1,8 @@
+owner = 'lapps'
+repository = 'org.lappsgrid.discriminator'
+files = [
+    [
+        file: 'target/Discriminators.java',
+        path: 'src/main/java/org/lappsgrid/discriminator/Discriminators.java'
+    ]
+]

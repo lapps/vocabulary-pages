@@ -75,7 +75,7 @@ Region {
 Relation {
 	parent 'Annotation'
 	definition '''Any relationship between linguistic forms or constituents, e.g., a
-grammatical relation such as subject-object, a semantic relation between meanings or "roles", a temporal relation
+grammatical relation such as subject-object, a semantic relation between meanings or <i>roles</i>, a temporal relation
 indicating the simultaneity or ordering in time of events or states, etc.'''
 	properties {
 		label {

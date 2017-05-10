@@ -74,9 +74,9 @@ Region {
 
 Relation {
 	parent 'Annotation'
-	definition 'Any relationship between linguistic forms or constituents, e.g., a
+	definition '''Any relationship between linguistic forms or constituents, e.g., a
 grammatical relation such as subject-object, a semantic relation between meanings or "roles", a temporal relation
-indicating the simultaneity or ordering in time of events or states, etc.'
+indicating the simultaneity or ordering in time of events or states, etc.'''
 	properties {
 		label {
 			type "String or URI"

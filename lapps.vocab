@@ -74,7 +74,9 @@ Region {
 
 Relation {
 	parent 'Annotation'
-	definition 'Definition needed.'
+	definition 'Any relationship between linguistic forms or constituents, e.g., a
+grammatical relation such as subject-object, a semantic relation between meanings or "roles", a temporal relation
+indicating the simultaneity or ordering in time of events or states, etc.'
 	properties {
 		label {
 			type "String or URI"
@@ -120,7 +122,7 @@ SemanticRole {
 
 Paragraph {
 	parent "Region"
-	definition "Definition needed."
+	definition "A division of a piece of writing, usually dealing with a single theme and indicated by a new line, indentation, and/or numbering."
 }
 
 Sentence {

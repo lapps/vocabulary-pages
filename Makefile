@@ -65,6 +65,8 @@ upload:
 	cd target ; tar czf annotations.tgz *.html ns js css
 	$(SCP) target/annotations.tgz $(REMOTE)
 	ssh -p 22022 anc.org "cd "$(REMOTE)" ; tar xzf annotations.tgz"
+	bin/ghc -f vocabulary.commit -t $TOKEN
+	bin/ghc -f discriminators.commit -t $TOKEN
 endif
 
 upload-rdf:
@@ -76,6 +78,8 @@ upload-rdf:
 	$(SCP) target/lapps-vocabulary.owl $(REMOTE)/index.owl
 	$(SCP) target/lapps-vocabulary.jsonld $(REMOTE)/index.jsonld
 	$(SCP) target/lapps-vocabulary.ttl $(REMOTE)/index.ttl
+
+release: all upload upload-rdf
 
 clean:
 	rm -rf target

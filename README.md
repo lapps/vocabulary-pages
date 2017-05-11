@@ -6,13 +6,19 @@ This project contains the vocabulary definition (DSL) and templates used to gene
 
 The latest versions of following programs should be available in the `bin/` directory.  
 
-**Vocabulary DSL**<br/>The vocabulary DSL is used to generate the web pages for vocabulary items as well as the Java class for the vocabulary Java API classes. The vocabulary DSL also generates the <tt>vocabulary.config</tt> file that is included by the <tt>discriminators.config</tt>.
-
+**Vocabulary DSL**<br/>
+The vocabulary DSL is used to generate the web pages for vocabulary items as well as the Java class for the vocabulary Java API classes. The vocabulary DSL also generates the <tt>vocabulary.config</tt> file that is included by the <tt>discriminators.config</tt> file.<br/>
 [Download](http://www.anc.org/downloads/vocab-latest.tgz)
 
-**Discriminator DSL**<br/>The discriminator DSL is used to generated the discriminator web pages for the vocab site as will as the Discriminators Java class for the `org.lappsgrid.discriminator` module.
-
+**Discriminator DSL** <br/>
+The discriminator DSL is used to generated the discriminator web pages for the vocab site as will as the Discriminators Java class for the `org.lappsgrid.discriminator` module.<br/>
 [Download](http://www.anc.org/downloads/discriminator-latest.tgz)
+
+
+**GitHub Commit**<br/>
+The GitHub Commit (ghc) program is a command line program used to commit files to a GitHub repository and create pull requests.<br/>
+[Download](http://www.anc.org/downloads/ghc-latest.tgz)
+
 
 ## Makefile
 

@@ -28,18 +28,18 @@ This uses the Vocabulary DSL and the Discriminator DSL and runs them on two user
 
 <dl>
 <dt>vocabulary</dt>
-<dd>Generates from `lapps.vocabulary` the `target/vocabulary.config` file used by the discriminator dsl</dd>
+<dd>Generates from <tt>lapps.vocabulary</tt> the <tt>target/vocabulary.config</tt> file used by the discriminator dsl</dd>
 
 <dt>html</dt>
-<dd>Generates all html pages for the http:vocab.lappsgrid.org web site. All those pages as well as `css` and `js` directories are written to `target`. </dd>
+<dd>Generates all html pages for the http:vocab.lappsgrid.org web site. All those pages as well as <tt>css</tt> and <tt>js</tt> directories are written to <tt>target</tt>. </dd>
 
 <dt>java</dt>
-<dd>Generates Java source files for the vocabulary package (https://github.com/lapps/org.lappsgrid.vocabulary) and the discriminators package (https://github.com/lapps/org.lappsgrid.discriminator). The Java classes created (`Annotations.java`, `Features.java` and `Discriminators.java`) are all in the `target` directory.</dd>
+<dd>Generates Java source files for the vocabulary package (https://github.com/lapps/org.lappsgrid.vocabulary) and the discriminators package (https://github.com/lapps/org.lappsgrid.discriminator). The Java classes created (<tt>Annotations.java</tt>, <tt>Features.java</tt> and <tt>Discriminators.java</tt>) are all in the <tt>target</tt> directory.</dd>
 
 <dt>rdf</dt>
 <dd>Generates the vocabulary in all the RDF(-like) formats: rdf, owl, ttl, and json-ld. Files created are
-`target/lapps-vocabulary.jsonld`, `target/lapps-vocabulary.owl`, `target/lapps-vocabulary.rdf` and
-`target/lapps-vocabulary.ttl`.</dd>
+<tt>target/lapps-vocabulary.jsonld</tt>, <tt>target/lapps-vocabulary.owl</tt>, <tt>target/lapps-vocabulary.rdf</tt> and
+<tt>target/lapps-vocabulary.ttl</tt>.</dd>
 
 <dt>all</dt>
 <dd>Does all of the above</dd>

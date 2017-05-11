@@ -65,7 +65,6 @@ upload:
 	cd target ; tar czf annotations.tgz *.html ns js css
 	$(SCP) target/annotations.tgz $(REMOTE)
 	ssh -p 22022 anc.org "cd "$(REMOTE)" ; tar xzf annotations.tgz"
-	#bin/ghc -f vocab-pages.pr -t 
 endif
 
 upload-rdf:

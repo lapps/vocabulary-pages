@@ -1,6 +1,7 @@
 VOCABULARY=lapps.vocabulary
 DISCRIMINATORS=lapps.discriminators
-REMOTE=/home/www/anc/LAPPS/vocab/beta
+REMOTE=anc.org:/home/www/anc/LAPPS/vocab
+SCP=scp -P 22022
 
 # This is non-portable and requires that the discriminator and vocabulary
 # projects have a) been checked out from GitHub, and b) are in the following 
@@ -55,22 +56,27 @@ copy:
 	cp target/Annotations.java $(VOCABULARY_PACKAGE)
 	cp target/Features.java $(VOCABULARY_PACKAGE)
 
+ifeq ($(TOKEN),)
+upload:
+	@echo "Please set the variable TOKEN with your GitHub API token."
+else
 upload:
 	if [ -d target/beta ] ; then mv target/beta/ns target/ns ; fi
 	cd target ; tar czf annotations.tgz *.html ns js css
-	#find target -type f | grep -v config | grep -v .java | sed 's|target/||' | tar czf annotations.tgz -C target/ -T -
-	anc-put target/annotations.tgz $(REMOTE)
-	ssh -p 22022 suderman@anc.org "cd "$(REMOTE)" ; tar xzf annotations.tgz"
+	$(SCP) target/annotations.tgz $(REMOTE)
+	ssh -p 22022 anc.org "cd "$(REMOTE)" ; tar xzf annotations.tgz"
+	#bin/ghc -f vocab-pages.pr -t 
+endif
 
 upload-rdf:
-	anc-put target/lapps-vocabulary.rdf $(REMOTE)
-	anc-put target/lapps-vocabulary.owl $(REMOTE)
-	anc-put target/lapps-vocabulary.jsonld $(REMOTE)
-	anc-put target/lapps-vocabulary.ttl $(REMOTE)
-	anc-put target/lapps-vocabulary.rdf $(REMOTE)/index.rdf
-	anc-put target/lapps-vocabulary.owl $(REMOTE)/index.owl
-	anc-put target/lapps-vocabulary.jsonld $(REMOTE)/index.jsonld
-	anc-put target/lapps-vocabulary.ttl $(REMOTE)/index.ttl
+	$(SCP) target/lapps-vocabulary.rdf $(REMOTE)
+	$(SCP) target/lapps-vocabulary.owl $(REMOTE)
+	$(SCP) target/lapps-vocabulary.jsonld $(REMOTE)
+	$(SCP) target/lapps-vocabulary.ttl $(REMOTE)
+	$(SCP) target/lapps-vocabulary.rdf $(REMOTE)/index.rdf
+	$(SCP) target/lapps-vocabulary.owl $(REMOTE)/index.owl
+	$(SCP) target/lapps-vocabulary.jsonld $(REMOTE)/index.jsonld
+	$(SCP) target/lapps-vocabulary.ttl $(REMOTE)/index.ttl
 
 clean:
 	rm -rf target

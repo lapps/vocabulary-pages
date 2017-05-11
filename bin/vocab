@@ -16,7 +16,7 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 MEMSIZE=4G
-JAR=vocab-1.3.0-SNAPSHOT.jar
+JAR=vocab-1.3.0.jar
 
 if [ "$1" = "-default" ] ; then
     if [ "$2" = "" ] ; then

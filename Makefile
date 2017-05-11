@@ -1,5 +1,5 @@
-VOCABULARY=lapps.vocab
-DISCRIMINATORS=discriminators.config
+VOCABULARY=lapps.vocabulary
+DISCRIMINATORS=lapps.discriminators
 REMOTE=/home/www/anc/LAPPS/vocab/beta
 
 # This is non-portable and requires that the discriminator and vocabulary

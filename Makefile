@@ -1,18 +1,15 @@
 VOCABULARY=lapps.vocabulary
 DISCRIMINATORS=lapps.discriminators
-REMOTE_DIR=/home/www/anc/LAPPS/vocab/beta
+REMOTE_DIR=/home/www/anc/LAPPS/vocab
 REMOTE=anc.org:$(REMOTE_DIR)
 SCP=scp -P 22022
-
-# This is non-portable and requires that the discriminator and vocabulary
-# projects have a) been checked out from GitHub, and b) are in the following 
-# directories
-VOCABULARY_PACKAGE=../org.lappsgrid.vocabulary/src/main/java/org/lappsgrid/vocabulary
-DISCRIMINATOR_PACKAGE=../org.lappsgrid.discriminator/src/main/java/org/lappsgrid/discriminator
 
 .PHONY: html
 
 help:
+	@echo
+	@echo "Run 'make release' to generate the vocabulary site from scratch, or"
+	@echo "run of the following goals to perform a single task."
 	@echo
 	@echo "GOALS"
 	@echo 
@@ -20,15 +17,14 @@ help:
 	@echo "html       - Creates all HTML pages for the vocab web site"
 	@echo "java       - Generate Java classes for vocabulary and discriminators."
 	@echo "rdf        - Generates RDF, OWL, and JSON versions of the vocabulary"
-	@echo "all        - Does everything."
+	@echo "all        - Generates all files (HTML, JAVA, RDF)"
+	@echo "upload     - Uploads HTML files to the server."
+	@echo "upload-rdf - Uploads RDF files to the server."
+	@echo "commit     - Creates pull requests for the generated Java files."
+	@echo "release    - Does everything."
 	@echo "clean      - Removes all html pages and the tgz archive."
 	@echo "help       - Displays this help message." 
 	@echo 
-	@echo "EXPERIMENTAL"
-	@echo
-	@echo "copy       - Copies the Java files to their project directories."
-	@echo "upload     - Uploads the html files to the vocabulary web site."
-	@echo
 
 vocabulary: 
 	chmod a+x bin/vocab

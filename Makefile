@@ -68,7 +68,7 @@ upload:
 	if [ -d target/beta/ns ] ; then mv target/beta/ns target/ns ; fi
 	cd target ; tar czf annotations.tgz *.html ns js css
 	$(SCP) target/annotations.tgz $(REMOTE)
-	ssh -p 22022 anc.org "cd "$(REMOTE_DIR)"../ ; sudo ./untar-vocab.sh"
+	ssh -p 22022 anc.org "sudo /home/www/anc/LAPPS/untar-vocab.sh"
 
 upload-rdf:
 	$(SCP) target/lapps-vocabulary.rdf $(REMOTE)

@@ -1,6 +1,7 @@
 VOCABULARY=lapps.vocabulary
 DISCRIMINATORS=lapps.discriminators
-REMOTE=anc.org:/home/www/anc/LAPPS/vocab
+REMOTE_DIR=/home/www/anc/LAPPS/vocab/beta
+REMOTE=anc.org:$(REMOTE_DIR)
 SCP=scp -P 22022
 
 # This is non-portable and requires that the discriminator and vocabulary
@@ -30,6 +31,8 @@ help:
 	@echo
 
 vocabulary: 
+	chmod a+x bin/vocab
+	chmod a+x bin/ddsl
 	./bin/vocab --discriminators $(VOCABULARY)
 
 html:
@@ -41,7 +44,7 @@ html:
 java:
 	./bin/vocab  --java Annotations --package org.lappsgrid.vocabulary --output target $(VOCABULARY)
 	./bin/vocab --features --output target $(VOCABULARY)
-	./bin/ddsl --java $(DISCRIMINATORS)
+	./bin/ddsl --java $(DISCRIMINATORS)	
 
 rdf:
 	./bin/vocab --output target --rdf rdf $(VOCABULARY) 
@@ -51,23 +54,25 @@ rdf:
 
 all: vocabulary html java rdf
 
-copy:
-	cp target/Discriminators.java $(DISCRIMINATOR_PACKAGE)
-	cp target/Annotations.java $(VOCABULARY_PACKAGE)
-	cp target/Features.java $(VOCABULARY_PACKAGE)
-
 ifeq ($(TOKEN),)
-upload:
+commit:
 	@echo "Please set the variable TOKEN with your GitHub API token."
+	@echo 
+	@echo "If you were using the 'make release' goal then you only need"
+	@echo "to run 'make commit' after setting TOKEN."
+	@echo
 else
+commit:
+	chmod a+x ./bin/ghc
+	./bin/ghc -f vocabulary.commit -t $(TOKEN)
+	./bin/ghc -f discriminators.commit -t $(TOKEN)
+endif
+
 upload:
 	if [ -d target/beta ] ; then mv target/beta/ns target/ns ; fi
 	cd target ; tar czf annotations.tgz *.html ns js css
 	$(SCP) target/annotations.tgz $(REMOTE)
-	ssh -p 22022 anc.org "cd "$(REMOTE)" ; tar xzf annotations.tgz"
-	bin/ghc -f vocabulary.commit -t $TOKEN
-	bin/ghc -f discriminators.commit -t $TOKEN
-endif
+	ssh -p 22022 anc.org "cd "$(REMOTE_DIR)" ; tar xzf annotations.tgz"
 
 upload-rdf:
 	$(SCP) target/lapps-vocabulary.rdf $(REMOTE)
@@ -79,7 +84,7 @@ upload-rdf:
 	$(SCP) target/lapps-vocabulary.jsonld $(REMOTE)/index.jsonld
 	$(SCP) target/lapps-vocabulary.ttl $(REMOTE)/index.ttl
 
-release: all upload upload-rdf
+release: all upload upload-rdf commit
 
 clean:
 	rm -rf target

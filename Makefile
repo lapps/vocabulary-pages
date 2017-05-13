@@ -65,10 +65,10 @@ commit:
 endif
 
 upload:
-	if [ -d target/beta ] ; then mv target/beta/ns target/ns ; fi
+	if [ -d target/beta/ns ] ; then mv target/beta/ns target/ns ; fi
 	cd target ; tar czf annotations.tgz *.html ns js css
 	$(SCP) target/annotations.tgz $(REMOTE)
-	ssh -p 22022 anc.org "cd "$(REMOTE_DIR)" ; tar xzf annotations.tgz"
+	ssh -p 22022 anc.org "cd "$(REMOTE_DIR)"../ ; sudo ./untar-vocab.sh"
 
 upload-rdf:
 	$(SCP) target/lapps-vocabulary.rdf $(REMOTE)

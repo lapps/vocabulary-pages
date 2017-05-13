@@ -112,11 +112,11 @@ json {
     uri media('jsonld')
     description "JSON for Linked Data."
 }
-lif {
-    uri media('jsonld#lif')
-    description "LAPPS Interchange format. (LIF)"
+led {
+    uri media('jsonld#led')
+    description "LAPPSGrid Exchange Datastructure. (LED)"
 }
-lapps {
+lif {
     uri media('jsonld#lif')
     description "LAPPS Interchange format. (LIF)"
 }

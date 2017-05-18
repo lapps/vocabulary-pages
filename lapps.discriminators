@@ -112,13 +112,13 @@ json {
     uri media('jsonld')
     description "JSON for Linked Data."
 }
+lapps {
+    uri media('jsonld#lapps')
+    description "LAPPS data structure with discriminator, parameters and payload attributes."
+}
 lif {
     uri media('jsonld#lif')
-    description "LAPPS Interchange format. (LIF)"
-}
-lapps {
-    uri media('jsonld#lif')
-    description "LAPPS Interchange format. (LIF)"
+    description "LAPPS Interchange format (LIF)."
 }
 ldc {
     uri _xml('ldc')

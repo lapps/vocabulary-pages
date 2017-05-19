@@ -48,7 +48,7 @@ rdf:
 	./bin/vocab --output target --rdf ttl $(VOCABULARY) 
 	./bin/vocab --output target --rdf jsonld $(VOCABULARY) 
 
-all: vocabulary html java rdf
+all: clean vocabulary html java rdf
 
 ifeq ($(TOKEN),)
 commit:
@@ -65,7 +65,6 @@ commit:
 endif
 
 upload:
-	if [ -d target/beta/ns ] ; then mv target/beta/ns target/ns ; fi
 	cd target ; tar czf annotations.tgz *.html ns js css
 	$(SCP) target/annotations.tgz $(REMOTE)
 	ssh -p 22022 anc.org "sudo /usr/local/bin/untar-vocab.sh"

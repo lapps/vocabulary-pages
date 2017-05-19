@@ -1,5 +1,5 @@
 // Closures used to generate URI in the required formats.
-vocab = { "http://vocab.lappsgrid.org/beta/$it" }
+vocab = { "http://vocab.lappsgrid.org/$it" }
 ns = { vocab("ns/$it") }
 media = { ns("media/$it") }
 _text = { media("text#$it") }

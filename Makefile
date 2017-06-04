@@ -31,6 +31,19 @@ vocabulary:
 	chmod a+x bin/ddsl
 	./bin/vocab --discriminators $(VOCABULARY)
 
+ifeq ($(TOKEN),)
+discriminators: 
+	@echo "Please set the variable TOKEN with your GitHub API token."
+	@echo 
+else
+discriminators:
+	./bin/ddsl --html ./target/discriminators.html --template ./templates/discriminator-index.template $(DISCRIMINATORS)
+	./bin/ddsl --pages target/ --template ./templates/discriminator-page.template $(DISCRIMINATORS)
+	cp -rf html/* target
+	./bin/ddsl --java $(DISCRIMINATORS)	
+	./bin/ghc -f discriminators.commit -t $(TOKEN)
+endif
+	
 html:
 	./bin/vocab --html ./templates/vocab-element.template --index ./templates/vocab-index.template --output target $(VOCABULARY) 
 	./bin/ddsl --html ./target/discriminators.html --template ./templates/discriminator-index.template $(DISCRIMINATORS)

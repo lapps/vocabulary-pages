@@ -6,7 +6,7 @@ _text = { media("text#$it") }
 _xml = { media("xml#$it") }
 
 /*
- * Base types. The ERROR type should always be 0 (zero).
+ * Base types.
  */
 error {
     uri ns('error')
@@ -125,14 +125,34 @@ ldc {
     description "XML format returned by LDC data sources."
 }
 tcf {
-	uri _xml('tcf')
-	description "Text Corpus Format used by Weblicht services. See https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format"
+    uri _xml('tcf')
+    description "Text Corpus Format used by Weblicht services. See <link>https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format</link>"
 }
 
 /*
  * Annotation types.
  */
 include 'target/vocabulary.config'
+
+/*
+ * Tag sets.
+ */
+'pos-tagset' {
+    uri ns('tagset/pos')
+    description 'Part-of-speech tag set.'
+}
+brown {
+    uri ns('tagset/pos#brown')
+    description 'The Brown part-of-speech tag set.'
+}
+penntb {
+    uri ns('tagset/pos#penntb')
+    description 'The Penn Treebank tag set, see <link>https://catalog.ldc.upenn.edu/docs/LDC99T42/tagguid1.pdf</link> and <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#tagset-en-ptb-pos</link>.'
+}
+'penntb-tt' {
+    uri ns('tagset/pos#penntb-tt')
+    description 'The Penn Treebank part-of-speech tag set used by the TreeTagger, which has a few more tags, see <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#tagset-en-ptb-tt-pos</link>.'
+}
 
 /*
  * Query types.
@@ -209,19 +229,19 @@ license {
 }
 'open-source' {
     uri ns('license#open-source')
-    description 'Any open source license recognized by the Open Source Initiative (http://opensource.org)'
+    description 'Any open source license recognized by the Open Source Initiative (<link>http://opensource.org</link>)'
 }
 apache2 {
     uri ns('license#apache-2.0')
-    description 'The Apache 2.0 license. See http://www.apache.org/licenses/LICENSE-2.0.html'
+    description 'The Apache 2.0 license. See <link>http://www.apache.org/licenses/LICENSE-2.0.html</link>'
 }
 gpl {
     uri ns('license#gpl')
-    description 'The General Public License by the Free Software Foundation. See http://www.gnu.org/copyleft/gpl.html'
+    description 'The General Public License by the Free Software Foundation. See <link>http://www.gnu.org/copyleft/gpl.html</link>'
 }
 lgpl {
     uri ns('license#lgpl')
-    description 'The Lesser General Public License by the Free Software Foundation. See http://www.gnu.org/copyleft/lgpl.html'
+    description 'The Lesser General Public License by the Free Software Foundation. See <link>http://www.gnu.org/copyleft/lgpl.html</link>'
 }
 bsd {
     uri ns('license#bsd')
@@ -269,7 +289,7 @@ mit {
 }
 cc {
     uri ns('license#cc')
-    description 'The Creative Commons family of licenses. See https://creativecommons.org/licenses/'
+    description 'The Creative Commons family of licenses. See <link>https://creativecommons.org/licenses/</link>'
 }
 cc0 {
     uri ns('license#cc0')

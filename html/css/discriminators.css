@@ -302,7 +302,8 @@ table.definition-table
 }
 .definition-table td
 {
-    padding: 0 5px 2px 5px;
+    xpadding: 0 5px 2px 5px;
+    padding: 5px;
     margin: 0;
     vertical-align: top;
     border: 1px solid #98A0A6;

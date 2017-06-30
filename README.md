@@ -6,15 +6,17 @@ This project contains the vocabulary definition (DSL) and templates used to gene
 
 The latest versions of the following programs should be available in the `bin/` directory.
 
-1. **Vocabulary DSL** <br/>
-The vocabulary DSL is used to generate the web pages for vocabulary items as well as the Java class for the vocabulary Java API classes. The vocabulary DSL also generates the <tt>vocabulary.config</tt> file that is included by the <tt>discriminators.config</tt> file. The source code for this program is maintained in  https://github.com/lappsgrid-incubator/vocabulary-dsl.<br/>
+1. **Vocabulary DSL** 
+  The vocabulary DSL is used to generate the web pages for vocabulary items as well as the Java class for the vocabulary Java API classes. The vocabulary DSL also generates the <tt>vocabulary.config</tt> file that is included by the <tt>discriminators.config</tt> file. The source code for this program is maintained in  https://github.com/lappsgrid-incubator/vocabulary-dsl.<br/>
+  [Download](http://www.anc.org/downloads/vocab-latest.tgz)
 
-2. **Discriminator DSL** <br/>
-The discriminator DSL is used to generated the discriminator web pages for the vocab site as will as the Discriminators Java class for the `org.lappsgrid.discriminator` module. The sources are maintained in https://github.com/lappsgrid-incubator/discriminator-dsl.<br/>
-
-3. **GitHub Commit**<br/>
-The GitHub Commit (ghc) program is a command line program used to commit files to a GitHub repository and create pull requests. Sources are maintained in https://github.com/lappsgrid-incubator/org.lappsgrid.github.commit.<br/>
-
+1. **Discriminator DSL**
+  The discriminator DSL is used to generated the discriminator web pages for the vocab site as will as the Discriminators Java class for the `org.lappsgrid.discriminator` module. The sources are maintained in https://github.com/lappsgrid-incubator/discriminator-dsl.<br/>
+  [Download](http://www.anc.org/downloads/discriminator-latest.tgz)
+  
+1. **GitHub Commit**
+  The GitHub Commit (ghc) program is a command line program used to commit files to a GitHub repository and create pull requests. Sources are maintained in https://github.com/lappsgrid-incubator/org.lappsgrid.github.commit.<br/>
+  [Download](http://www.anc.org/downloads/ghc-latest.tgz)
 
 ## Makefile
 
@@ -29,6 +31,11 @@ This uses the Vocabulary DSL and the Discriminator DSL and runs them on the two 
 
 Here is an overview of other goals that can be used with the Makefile:
 
+| goal | description |
+|------|-------------|
+| vocabulary | Generates the `target/vocabulary.config` file from `lapps.vocabulary`. The `vocabulary.config` file is *included* in the `lapps.discriminator` file. |
+| html |Generates all html pages for the http://vocab.lappsgrid.org web site. All html pages plus the `css` and `js` directories will be copied to the `target` directory.|
+| java | Generates the Java for the [vocabulary package](https://github.com/lapps/org.lappsgrid.vocabulary) and the [discriminator package](https://github.com/lapps/org.lappsgrid.discriminator) |
 <table>
 
 <tr>

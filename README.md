@@ -31,13 +31,7 @@ This uses the Vocabulary DSL and the Discriminator DSL and runs them on the two 
 
 Here is an overview of other goals that can be used with the Makefile:
 
-| goal | description |
-|------|-------------|
-| vocabulary | Generates the `target/vocabulary.config` file from `lapps.vocabulary`. The `vocabulary.config` file is *included* in the `lapps.discriminator` file. |
-| html |Generates all html pages for the http://vocab.lappsgrid.org web site. All html pages plus the `css` and `js` directories will be copied to the `target` directory.|
-| java | Generates the Java for the [vocabulary package](https://github.com/lapps/org.lappsgrid.vocabulary) and the [discriminator package](https://github.com/lapps/org.lappsgrid.discriminator) |
 <table>
-
 <tr>
 <th>goal</th>
 <th>description</th>

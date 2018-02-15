@@ -12,7 +12,7 @@ The vocabulary DSL is used to generate the web pages for vocabulary items as wel
 
 **Discriminator DSL** <br/>
 The discriminator DSL is used to generated the discriminator web pages for the vocab site as will as the Discriminators Java class for the `org.lappsgrid.discriminator` module.<br/>
-[Download](http://www.anc.org/downloads/discriminator-latest.tgz)
+[Download](http://www.anc.org/downloads/discriminators-latest.tgz)
 
 
 **GitHub Commit**<br/>

@@ -141,22 +141,22 @@ include 'target/vocabulary.config'
  * ------------------------
  */
 
-'pos-tags' {
+'tags-pos' {
     uri ns('tagset/pos')
     description 'Part-of-speech tag set.'
 }
 
-'pos-tags-brown' {
+'tags-pos-brown' {
     uri ns('tagset/pos#brown')
     description 'The Brown part-of-speech tag set.'
 }
 
-'pos-tags-penntb' {
+'tags-pos-penntb' {
     uri ns('tagset/pos#penntb')
     description 'The Penn Treebank tag set, see <link>https://catalog.ldc.upenn.edu/docs/LDC99T42/tagguid1.pdf</link> and <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#tagset-en-ptb-pos</link>.'
 }
 
-'pos-tags-penntb-tt' {
+'tags-pos-penntb-tt' {
     uri ns('tagset/pos#penntb-tt')
     description 'The Penn Treebank part-of-speech tag set used by the TreeTagger, which has a few more tags, see <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#tagset-en-ptb-tt-pos</link>.'
 }
@@ -167,12 +167,12 @@ include 'target/vocabulary.config'
  * ---------------------------
  */
 
-'tagset-categories' {
-	uri ns('tagset/categories')
-	description 'Categories used in syntactic (phrase structure) parses.'
+'tags-cat' {
+    uri ns('tagset/categories')
+    description 'Categories used in syntactic (phrase structure) parses.'
 }
 
-'syntactic-categories-penntb' {
+'tags-cat-penntb' {
    uri ns('tagset/categories#penntb')
    description 'The syntactic categories from the English Penn Treebank. See <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#tagset-en-ptb-constituent</link>'
 }
@@ -183,12 +183,12 @@ include 'target/vocabulary.config'
  * ---------------------------
  */
 
-'tagset-dependencies' {
-	uri ns('tagset/dependencies')
-	description 'Tags used by dependency parsers.'
+'tags-dep' {
+    uri ns('tagset/dependencies')
+    description 'Tags used by dependency parsers.'
 }
 
-'dependencies-stanford' {
+'tags-dep-stanford' {
    uri ns('tagset/dependencies#stanford')
    description 'Stanford typed dependencies. See the Stanford dependency sets listed under <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#_dependency</link> and the dependencies manual at <link>https://nlp.stanford.edu/software/dependencies_manual.pdf</link>.'
  }
@@ -199,17 +199,17 @@ include 'target/vocabulary.config'
  * ---------------------------
  */
 
-'ner-categories' {
+'tags-ner' {
     uri ns('tagset/ner')
     description 'Named entity category sets.'
 }
 
-'ner-categories-stanford' {
+'tags-ner-stanford' {
     uri ns('tagset/ner#stanford')
     description 'Named entity category set used by the Stanford NER, see <link>https://nlp.stanford.edu/software/CRF-NER.shtml</link>. Stanford NER comes with three models, one with three classes (Location, Person, Organization), one with four classes (Location, Person, Organization, Misc) and one with seven (Location, Person, Organization, Money, Percent, Date, Time).'
 }
 
-'ner-categories-opennlp' {
+'tags-ner-opennlp' {
     uri ns('tagset/ner#opennlp')
     description 'Named entity category set used by the OpenNLP NER, see <link>https://opennlp.apache.org/docs/1.5.3/manual/opennlp.html#tools.namefind.recognition</link>. Actual tag sets are not defined explicitly and depend on the training models used.'
 }

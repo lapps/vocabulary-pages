@@ -167,6 +167,11 @@ include 'target/vocabulary.config'
  * ---------------------------
  */
 
+'tagset-categories' {
+	uri ns('tagset/categories')
+	description 'Categories used in syntactic (phrase structure) parses.'
+}
+
 'syntactic-categories-penntb' {
    uri ns('tagset/categories#penntb')
    description 'The syntactic categories from the English Penn Treebank. See <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#tagset-en-ptb-constituent</link>'
@@ -177,6 +182,11 @@ include 'target/vocabulary.config'
  * Dependency Sets
  * ---------------------------
  */
+
+'tagset-dependencies' {
+	uri ns('tagset/dependencies')
+	description 'Tags used by dependency parsers.'
+}
 
 'dependencies-stanford' {
    uri ns('tagset/dependencies#stanford')

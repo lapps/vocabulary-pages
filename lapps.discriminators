@@ -5,6 +5,12 @@ media = { ns("media/$it") }
 _text = { media("text#$it") }
 _xml = { media("xml#$it") }
 
+// Closure for loading text from a file. Instead of a string as the value of the
+// description field you can also add a relative path to a file (relative to the
+// position of this file).
+load = { new File(it).text }
+
+
 /*
  * Base types.
  */

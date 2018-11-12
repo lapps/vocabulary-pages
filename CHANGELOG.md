@@ -8,8 +8,9 @@
 * added `tagSet`-like values to `contains` view metadata map for POS, NE, PS, dep.
     * `posTagSet`, `namedEntityCategorySet`, `categorySet`, `dependencySet`
     * see [#55](https://github.com/lapps/vocabulary-pages/issues/55)
-* moved `label` from `annotation` to `features` (of an `annotation`)
-* new top-level field for 
+* vocabulary hierarchy is now under CC-BY license. [PR](https://github.com/lapps/vocabulary-pages/pull/75)
+* added discriminators
+   * for UD [#73](https://github.com/lapps/vocabulary-pages/issues/73)
 
 ### 1.1.0 
 

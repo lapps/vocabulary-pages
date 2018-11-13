@@ -4,7 +4,7 @@
  *
  */
 
-VOCAB="http://vocab.lappsgrid.org/lapps-vocabulary"
+VOCAB="lapps-vocabulary"
 RDF="${VOCAB}.rdf"
 OWL="${VOCAB}.owl"
 JSONLD="${VOCAB}.jsonld"

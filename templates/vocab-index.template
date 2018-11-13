@@ -16,25 +16,25 @@ printTable = { node ->
             td(class:'tc', colspan:4) {
             	if (node.deprecated) {
             		span(class:'deprecated') {
-						if (node.properties) {
-							mkp.yieldUnescaped "<a href='${node.name}.html'>${node.name}</a>: <span>${node.properties}</span>"
-						}
-						else {
-							a(href:"${node.name}.html", node.name)
-						}
+				if (node.properties) {
+					mkp.yieldUnescaped "<a href='${node.name}.html'>${node.name}</a>: <span>${node.properties}</span>"
+				}
+				else {
+					a(href:"${node.name}.html", node.name)
+				}
             		}
             	}
             	else {
-					if (node.properties) {
-						mkp.yieldUnescaped "<a href='${node.name}.html'>${node.name}</a>: <span>${node.properties}</span>"
-					}
-					else {
-						a(href:"${node.name}.html", node.name)
-					}
-				}
-				//if (node.deprecated) {
-				//	span ' [deprecated]'
-				//}
+			if (node.properties) {
+				mkp.yieldUnescaped "<a href='${node.name}.html'>${node.name}</a>: <span>${node.properties}</span>"
+			}
+			else {
+				a(href:"${node.name}.html", node.name)
+			}
+		}
+		//if (node.deprecated) {
+		//	span ' [deprecated]'
+		//}
             }
         }
         if (node.children.size() > 0) {
@@ -115,36 +115,46 @@ html {
                  basis for use in the development of the LAPPS Grid. The Type
                  Hierarchy below contains all of the elements for which specifications
                  have been finalized so far. Detailed information is available by
-                 clicking on the relevant element."""
-            p "The vocabulary is available in the following formats:"
+                 clicking on the relevant element. At the bottom of the page are some 
+		 instructions for downloading the vocabulary."""
+
+            br()
+
+            h1 "LAPPS Exchange Vocabulary Type Hierarchy"
+            roots.each { root ->
+                br()
+                printTable(root)
+            }
+
+            br()
+
+    	    p """The vocabulary is available in the following formats: """
+
             ul {
             	li { a(href:RDF, "RDF") }
             	li { a(href:OWL, "OWL") }
             	li { a(href:JSONLD, "JSONLD") }
             	li { a(href:TTL, "TTL") }
             }
+
             //p "The RDF/XML and JSON-LD versions can also be obtained by specifying the appropriate Accept header in the HTTP request:"
+	    //br()
             mkp.yieldUnescaped "The RDF/XML and JSON-LD versions can also be obtained by specifying the appropriate <em>Accept</em> header in the HTTP request:"
             pre 'curl -H "Accept: application/rdf+xml" http://vocab.lappsgrid.org'
-            br()
-            h1 "LAPPS Exchange Vocabulary Type Hierarchy"
-            roots.each { root ->
-                br()
-                printTable(root)
-            }
-            br()
-            br()
+
+	    br()
+
             div {
-				a(rel:'license', href:'http://creativecommons.org/licenses/by/4.0/') {
-					img(alt:"Creative Commons License", style:"border-width:0; vertical-align: middle;", src:"https://i.creativecommons.org/l/by/4.0/88x31.png", '')
-				}
-				span {
-					span "The LAPPS Grid Vocabulary is licensed under the "
-					a(rel:"license", href:"http://creativecommons.org/licenses/by/4.0/", 'Creative Commons Attribution 4.0 International License')
-					span('.')
-				}
-				br()
-				br()            
+		a(rel:'license', href:'http://creativecommons.org/licenses/by/4.0/') {
+			img(alt:"Creative Commons License", style:"border-width:0; vertical-align: middle;", src:"https://i.creativecommons.org/l/by/4.0/88x31.png", '')
+		}
+		span {
+			span "The LAPPS Grid Vocabulary is licensed under the "
+			a(rel:"license", href:"http://creativecommons.org/licenses/by/4.0/", 'Creative Commons Attribution 4.0 International License')
+			span('.')
+		}
+		br()
+		br()            
             }
         }
     }

@@ -220,6 +220,11 @@ include 'target/vocabulary.config'
     description 'Named entity category set used by the OpenNLP NER, see <link>https://opennlp.apache.org/docs/1.5.3/manual/opennlp.html#tools.namefind.recognition</link>. Actual tag sets are not defined explicitly and depend on the training models used.'
 }
 
+'tags-ner-bio-genetag' {
+    uri ns('tagset/ner#bio-opennlp')
+    description 'Named entity category set used in the GeneTag data in the MedTag corpus (<linl>ftp://ftp.ncbi.nlm.nih.gov/pub/lsmith/MedTag/</link>.'
+}
+
 
 /*
  * Query types.

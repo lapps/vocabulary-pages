@@ -3,6 +3,11 @@
  * LAPPS vocabulary web site.
  */
 
+makeLinks = { String text ->
+	if (text == null) return text
+	return text.replaceAll("<link>(.*?)</link>", "<a href='\$1'>\$1</a>")
+}
+
 html {
     head {
         title "LAPPS Discriminators URI"
@@ -20,7 +25,7 @@ html {
             div(id:'mainContent') {
                 p """The LAPPS Web Service URI Inventory is a list of the URI
                     recognized by the core LAPPS infrastructure. Web services deployed to a
-                    LAPPS node may use other URI, but this list of the URI used by
+                    LAPPS node may use other URI, but this is the list of the URI used by
                     the LAPPS infrastructure.
                 """
                 p """The URI fall into one of three conceptual categories"""
@@ -72,7 +77,7 @@ html {
                         //    td type.id
                         //}
                         tr {
-                            th width:'10%', "URI"
+                            //td width:'10%', "URI"
                             if (type.uri.startsWith('http://vocab.lappsgrid.org')) {
                                 td {
                                     a href:type.uri, type.uri
@@ -82,18 +87,20 @@ html {
                                 td type.uri
                             }
                         }
-                        if (type.ancestors.size() > 0) {
-                            th 'Ancestors'
-                            td {
-                                def makeLink = { name ->
-                                    builder.a(href:"#${name}", name)
-                                }
-                                type.ancestors.collect { makeLink(it) }.join(", ")
-                            }
-                        }
+                        //if (type.ancestors.size() > 0) {
+                        //    //td 'Ancestors'
+                        //    td {
+                        //        def makeLink = { name ->
+                        //            builder.a(href:"#${name}", name)
+                        //        }
+                        //        type.ancestors.collect { makeLink(it) }.join(", ")
+                        //    }
+                        //}
                         tr {
-                            td()
-                            td type.description
+                            //td()
+			    mkp.yieldUnescaped "\n            <td>"
+			    mkp.yieldUnescaped makeLinks(type.description)
+			    mkp.yieldUnescaped "</td>"
                         }
                     }
                     /*
@@ -108,7 +115,21 @@ html {
                     mkp.yieldUnescaped """
                         <p class='backtotop'>Back to (<a href="#top.${type.name}">element</a> | <a href="#top">top</a>)</p>
                     """
-                }
+            	}
+				div {
+					br()
+					br()
+					a(rel:'license', href:'http://creativecommons.org/licenses/by/4.0/') {
+						img(alt:"Creative Commons License", style:"border-width:0; vertical-align: middle;", src:"https://i.creativecommons.org/l/by/4.0/88x31.png", '')
+					}
+					span {
+						span "The LAPPS Grid Vocabulary is licensed under the "
+						a(rel:"license", href:"http://creativecommons.org/licenses/by/4.0/", 'Creative Commons Attribution 4.0 International License')
+						span('.')
+					}
+					br()
+					br()            
+				}                                    
             }
         }
         div(class:'footer') {

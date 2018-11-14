@@ -1,6 +1,12 @@
 /*
  * Template used to generate a single HTML page for a discriminator.
  */
+
+makeLinks = { String text ->
+	if (text == null) return text
+	return text.replaceAll("<link>(.*?)</link>", "<a href='\$1'>\$1</a>")
+}
+
 html {
     head {
         title "${page.name}"
@@ -33,9 +39,25 @@ html {
                 discriminators[1..-1].each { d ->
                     a name:"${d.fragment.substring(1)}", ''
                     h2 d.discriminator.uri
-                    p d.discriminator.description
+		    mkp.yieldUnescaped "\n      <p>"
+		    mkp.yieldUnescaped makeLinks(d.discriminator.description)
+		    mkp.yieldUnescaped "</p>"
                 }
             }
+			div {
+				br()
+				br()
+				a(rel:'license', href:'http://creativecommons.org/licenses/by/4.0/') {
+					img(alt:"Creative Commons License", style:"border-width:0; vertical-align: middle;", src:"https://i.creativecommons.org/l/by/4.0/88x31.png", '')
+				}
+				span {
+					span "The LAPPS Grid Vocabulary is licensed under the "
+					a(rel:"license", href:"http://creativecommons.org/licenses/by/4.0/", 'Creative Commons Attribution 4.0 International License')
+					span('.')
+				}
+				br()
+				br()            
+			}                
         }
         div(class:'footer') {
             def year = Calendar.getInstance().get(Calendar.YEAR)

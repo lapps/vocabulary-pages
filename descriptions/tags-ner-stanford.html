@@ -1,0 +1,19 @@
+<!--
+
+Example of how the load closure in lapps.discriminators can be used. The text in
+this file will be loaded if instead of the current text we would have
+
+'tags-ner-stanford' {
+    uri ns('tagset/ner#stanford')
+    description load('descriptions/tags-ner-stanford.html')
+}
+
+-->
+
+<p>Named entity category set used by the Stanford NER, see
+<link>https://nlp.stanford.edu/software/CRF-NER.shtml</link>.</p>
+
+<p>Stanford NER comes with three models, one with three classes (Location, Person,
+Organization), one with four classes (Location, Person, Organization, Misc) and
+one with seven (Location, Person, Organization, Money, Percent, Date, Time).</p>
+

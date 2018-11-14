@@ -1,18 +1,46 @@
-#### in discussion 
+# Change Log
 
-* adding `dependeOn` to `contains` view metadata map
-    * see [#50](https://github.com/lapps/vocabulary-pages/issues/50)
+All notable changes to the vocabulary and set of discriminators will be documented in this file. The links show all changes between two versions, note that only the changes to `lapps.discriminators` and `lapps.vocabulary` are recorded here.
 
-### 1.2.0 
 
+## Next Version
+
+https://github.com/lapps/vocabulary-pages/compare/1.1.0...develop
+
+* vocabulary hierarchy is now under the CC-BY license. [PR](https://github.com/lapps/vocabulary-pages/pull/75)
 * added `tagSet`-like values to `contains` view metadata map for POS, NE, PS, dep.
     * `posTagSet`, `namedEntityCategorySet`, `categorySet`, `dependencySet`
     * see [#55](https://github.com/lapps/vocabulary-pages/issues/55)
-* vocabulary hierarchy is now under CC-BY license. [PR](https://github.com/lapps/vocabulary-pages/pull/75)
 * added discriminators
-   * for UD [#73](https://github.com/lapps/vocabulary-pages/issues/73)
+    - `tcf` discriminator.
+    - for UD [#73](https://github.com/lapps/vocabulary-pages/issues/73)
+    - for pos tagsets, syntactic category sets, dependency sets and named entity catgeory sets.
 
-### 1.1.0 
 
-* re-organized the way [named entity](http://vocab.lappsgrid.org/NamedEntity.html) is structured. 
-    * instead of having each type of entity as separate discriminator, now `NamedEntity` is a discriminator that has `type` feature represents entity types (person, organization, location, ...).
+## Version 1.1.0 - 2017-05-18
+
+https://github.com/lapps/vocabulary-pages/compare/1.0.0...1.1.0
+
+- Added versioned discriminators. 
+- Added `type` meta data property to `Annotation` type.
+- Added definition for the `Relation` type.
+- Added definition for the `Paragraph` type.
+- Changed `NamedEntity`.
+- Depcrecated `Data`, `Location`, `Organization` and `Person`.
+
+## Version 1.0.0 - 2017-04-14
+
+https://github.com/lapps/vocabulary-pages/compare/v0.1.0...1.0.0
+
+- First released version
+- Renamed `Span` into `Region` and updated definition.
+- Made the `id` of an `Annotation` required.
+- Added `Relation`, `GenericRelation`, `SemanticRole`, `Paragraph`, `NounChunk`, `VerbChunk` and `Dependency`.
+- Added `posTagSet` meta data property to `Token` type.
+- Changed type and definition on some properties of `Coreference`.
+- Made `Constituent` a sub type of `Relation`.
+
+
+## Version 0.1.0 - 2015-01-11
+
+- First tagged version.

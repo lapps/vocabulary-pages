@@ -6,7 +6,7 @@
 schema="http://schema.org"
 iso="http://www.isocat.org/datcat"
 
-version='1.1.0'
+version='1.2.0'
 
 // Message to be displayed for deprecated named entities.
 NE_DEPRECATED = '''Use <link>NamedEntity</link> with appropriate @category and @type attributes instead. This annotation type will be removed in a future version of the vocabulary.'''

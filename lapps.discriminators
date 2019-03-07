@@ -219,6 +219,11 @@ include 'target/vocabulary.config'
     description 'Named entity category sets.'
 }
 
+'tags-ner-muc6' {
+    uri ns('tagset/ner#muc6')
+    description load('descriptions/tags-ner-muc6.html')
+}
+
 'tags-ner-stanford' {
     uri ns('tagset/ner#stanford')
     description 'Named entity category set used by the Stanford NER, see <link>https://nlp.stanford.edu/software/CRF-NER.shtml</link>. Stanford NER comes with three models, one with three classes (Location, Person, Organization), one with four classes (Location, Person, Organization, Misc) and one with seven (Location, Person, Organization, Money, Percent, Date, Time).'

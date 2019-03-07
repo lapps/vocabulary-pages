@@ -134,6 +134,10 @@ tcf {
     uri _xml('tcf')
     description "Text Corpus Format used by Weblicht services. See <link>https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format</link>"
 }
+ud {
+	uri media('ud')
+	description "Universal Dependencies. See <link>http://universaldependencies.org</link>"
+}
 
 /*
  * Annotation types.
@@ -155,6 +159,11 @@ include 'target/vocabulary.config'
 'tags-pos-brown' {
     uri ns('tagset/pos#brown')
     description 'The Brown part-of-speech tag set.'
+}
+
+'tags-pos-hepple' {
+	uri ns('tagset/pos#hepple')
+	description 'Tagset used by the GATE Hepple POS tagger.'
 }
 
 'tags-pos-penntb' {
@@ -218,6 +227,11 @@ include 'target/vocabulary.config'
 'tags-ner-opennlp' {
     uri ns('tagset/ner#opennlp')
     description 'Named entity category set used by the OpenNLP NER, see <link>https://opennlp.apache.org/docs/1.5.3/manual/opennlp.html#tools.namefind.recognition</link>. Actual tag sets are not defined explicitly and depend on the training models used.'
+}
+
+'tags-ner-bio-genetag' {
+    uri ns('tagset/ner#bio-opennlp')
+    description 'Named entity category set used in the GeneTag data in the MedTag corpus (<linl>ftp://ftp.ncbi.nlm.nih.gov/pub/lsmith/MedTag/</link>.'
 }
 
 

@@ -10,7 +10,7 @@ makeLinks = { String text ->
 html {
     head {
         title "${page.name}"
-        link rel:'stylesheet', type:'text/css', href:'http://vocab.lappsgrid.org/discriminators.css'
+        link rel:'stylesheet', type:'text/css', href:'http://vocab.lappsgrid.org/css/discriminators.css'
     }
     body(id:'container') {
         div(id:'intro') {

@@ -224,6 +224,11 @@ include 'target/vocabulary.config'
     description 'Custom NamedEntity category set defined by the user. This can be used for dictionary based NER like the Lingpipe Dictionary Based Named Entity Recognition, which allows a user to upload a dictionary with named entities using any categorization.'
 }
 
+'tags-ner-gate' {
+    uri ns('tagset/ner#gate')
+    description load('descriptions/tags-ner-gate.html')
+}
+
 'tags-ner-muc6' {
     uri ns('tagset/ner#muc6')
     description load('descriptions/tags-ner-muc6.html')

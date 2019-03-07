@@ -8,7 +8,7 @@ The latest versions of the following programs should be available in the `bin/` 
 
 1. **Vocabulary DSL**
   The vocabulary DSL is used to generate the web pages for vocabulary items as well as the Java class for the vocabulary Java API classes. The vocabulary DSL also generates the <tt>vocabulary.config</tt> file that is included by the <tt>discriminators.config</tt> file. The source code for this program is maintained in  https://github.com/lappsgrid-incubator/vocabulary-dsl.<br/>
-  [Download](http://www.anc.org/downloads/vocab-latest.tgz)
+  [Download](http://downloads.lappsgrid.org/vocab-latest.tgz)
 
 1. **Discriminator DSL**
   The discriminator DSL is used to generated the discriminator web pages for the vocab site as will as the Discriminators Java class for the `org.lappsgrid.discriminator` module. The sources are maintained in https://github.com/lappsgrid-incubator/discriminator-dsl.<br/>

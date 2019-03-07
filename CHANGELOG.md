@@ -7,8 +7,14 @@ All notable changes to the vocabulary and set of discriminators will be document
 
 https://github.com/lapps/vocabulary-pages/compare/1.1.0...develop
 
-- Added `tcf` discriminator.
-- Added discriminators for pos tagsets, syntactic category sets, dependency sets and named entity catgeory sets.
+* vocabulary hierarchy is now under the CC-BY license. [PR](https://github.com/lapps/vocabulary-pages/pull/75)
+* added `tagSet`-like values to `contains` view metadata map for POS, NE, PS, dep.
+    * `posTagSet`, `namedEntityCategorySet`, `categorySet`, `dependencySet`
+    * see [#55](https://github.com/lapps/vocabulary-pages/issues/55)
+* added discriminators
+    - `tcf` discriminator.
+    - for UD [#73](https://github.com/lapps/vocabulary-pages/issues/73)
+    - for pos tagsets, syntactic category sets, dependency sets and named entity catgeory sets.
 
 
 ## Version 1.1.0 - 2017-05-18

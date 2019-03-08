@@ -121,11 +121,13 @@ html {
             br()
 
             h1 "LAPPS Exchange Vocabulary Type Hierarchy"
-            roots.each { root ->
-                br()
-                printTable(root)
-            }
-
+            //roots.each { root ->
+            //    br()
+            //    printTable(root)
+            //}
+            // TDOD The spacing should be done in the CSS not with <br/> tags.
+			br()
+			printTable(roots[0])
             br()
 
     	    p """The vocabulary is available in the following formats: """

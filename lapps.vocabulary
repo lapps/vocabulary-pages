@@ -6,7 +6,7 @@
 schema="http://schema.org"
 iso="http://www.isocat.org/datcat"
 
-version='1.2.0'
+version='1.3.0-SNAPSHOT'
 
 // Message to be displayed for deprecated named entities.
 NE_DEPRECATED = '''Use <link>NamedEntity</link> with appropriate @category and @type attributes instead. This annotation type will be removed in a future version of the vocabulary.'''
@@ -263,10 +263,12 @@ Token {
         pos {
             type "String or URI"
             description "Part-of-speech tag associated with the token."
+            discriminator true
         }
         lemma {
             type "String or URI"
             description "The root (base) form associated with the token. URI may point to a lexicon entry."
+            discriminator true
         }
         tokenType {
             type "String or URI"
@@ -275,6 +277,12 @@ Token {
         orth {
             type "String or URI"
             description "Orthographic properties of the token such as LowerCase, UpperCase, UpperInitial, etc. Ideally a URI referencing a pre-defined descriptor."
+            discriminator true
+        }
+        morph {
+        	type "Map"
+        	description ""
+        	discriminator true
         }
         length {
             type "Integer"

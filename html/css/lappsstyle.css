@@ -29,6 +29,10 @@ ul.tree { list-style:none; }
 }
 .deprecated { text-decoration: line-through; }
 
+.footer {
+    font-size: x-small;
+    text-align: center;
+}
 
 /* -- page structure -- */
 #container

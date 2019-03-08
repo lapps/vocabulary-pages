@@ -1,9 +1,10 @@
+#VERSION=$(shell cat VERSION)
+VERSION=1.3.0
 VOCABULARY=lapps.vocabulary
 DISCRIMINATORS=lapps.discriminators
 REMOTE_DIR=/home/www/anc/LAPPS/vocab
 REMOTE=anc.org:$(REMOTE_DIR)
 SCP=scp -P 22022
-
 .PHONY: html
 
 help:
@@ -78,7 +79,8 @@ commit:
 endif
 
 upload:
-	cd target ; tar czf annotations.tgz *.html ns js css
+	mkdir target/$(VERSION)
+	cd target ; cp -R *.html js ns css $(VERSION) && tar czf annotations.tgz $(VERSION)
 	$(SCP) target/annotations.tgz $(REMOTE)
 	ssh -p 22022 anc.org "sudo /usr/local/bin/untar-vocab.sh"
 

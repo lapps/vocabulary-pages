@@ -12,6 +12,18 @@ if (versionFile.exists()) {
 	version = versionFile.text.trim()
 }
 
+TYPE = "http://vocab.lappsgrid.org/xsd/Datatype"
+
+XSD = [
+	string: 'xsd:string',
+	id:     'xsd:ID',
+	idrefs: 'xsd:IDREFS',
+	uri:    'xsd:anyURI',
+	long:   'xsd:long',
+	list_uri: "${TYPE}#list_uri",
+	morphology: "${TYPE}#morphology"
+]
+
 // Message to be displayed for deprecated named entities.
 NE_DEPRECATED = '''Use <link>NamedEntity</link> with appropriate @category and @type attributes instead. This annotation type will be removed in a future version of the vocabulary.'''
         
@@ -199,6 +211,45 @@ NamedEntity {
     }
 }
 
+Morphology {
+	parent 'Region'
+	definition 'Morphological description for a word or token.'
+	properties {
+		wordClass {
+			type 'String'
+			description ''
+		}
+		majorWordClass {
+			type 'String'
+			description ''
+		}
+		syntax {
+			type 'String'
+			description ''
+		}
+		tense {
+			type 'String'
+			description ''
+		}
+		person {
+			type 'String'
+			description ''
+		}
+		number {
+			type 'String'
+			description ''
+		}
+		prefix {
+			type 'String'
+			description ''
+		}
+		suffix {
+			type 'String'
+			description ''
+		}
+	}
+}
+
 Date {
     parent "NamedEntity"
     definition "A reference to a date or period."
@@ -283,9 +334,9 @@ Token {
             description "Orthographic properties of the token such as LowerCase, UpperCase, UpperInitial, etc. Ideally a URI referencing a pre-defined descriptor."
             discriminator true
         }
-        morph {
-        	type "Map"
-        	description ""
+        morphology {
+        	type XSD.morphology
+        	description "Morphology"
         	discriminator true
         }
         length {
@@ -451,3 +502,29 @@ AudioDocument {
     definition "Any electronic media content consisting of audio (language). An audio document may consist of several physical computer files."
     parent "Document"
 }
+
+/*
+ * Custom types used to generate the XML Schema
+ */
+Datatypes {
+	simple('list_uri') {
+	    restriction {
+	        simpleType {
+	            list itemType:'xs:anyURI'
+	        }
+	    }
+	}
+	complex('morphology') {
+	    sequence {
+	        element type:'xs:string', name:'majorWordClass'
+	        element name:'wordClass', type:'xs:string'
+	        element name:'prefix', type:'xs:string'
+	        element name:'suffix', type:'xs:string'
+	        element name:'number', type:'xs:string'
+	        element name:'person', type:'xs:string'
+	        element name:'syntax', type:'xs:string'
+	        element name:'tense', type:'xs:string'
+	    }
+	}
+}
+

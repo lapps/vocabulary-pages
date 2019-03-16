@@ -61,7 +61,11 @@ rdf:
 	./bin/vocab --output target --rdf owl $(VOCABULARY) 
 	./bin/vocab --output target --rdf ttl $(VOCABULARY) 
 	./bin/vocab --output target --rdf jsonld $(VOCABULARY) 
-
+	./bin/vocab --output target --xsd $(VOCABULARY)
+	
+xsd:
+	./bin/vocab --output target --xsd $(VOCABULARY)
+	
 all: clean vocabulary html java rdf
 
 ifeq ($(TOKEN),)

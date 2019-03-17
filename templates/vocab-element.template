@@ -11,14 +11,19 @@ makeLinks = { String text ->
 	return text.replaceAll("<link>(.*?)</link>", "<a href='\$1.html'>\$1</a>")
 }
 
+normalizeVersion = { String version -> 
+	return version.replace("-SNAPSHOT", "").replaceAll("-RC\\d*", "")
+}
+
 getTypeString = { String version, String type ->
 	if (type.startsWith('http')) {
 		int index = type.lastIndexOf('/')
 		String name = type.substring(index + 1)
-		type = type.replaceAll("-SNAPSHOT", "")
+		//type = normalizeVersion(type)
 		return "<a href='$type'>$name</a>"
 	}
 	if (type.startsWith('Datatype#')) {
+		//version = normalizeVersion(version)
 		return "<a href='http://vocab.lappsgrid.org/$version/$type'>$type</a>"
 	}
 	return type

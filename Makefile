@@ -84,7 +84,12 @@ endif
 
 upload:
 	mkdir target/$(VERSION)
-	cd target ; cp -R *.html js ns css $(VERSION) && tar czf annotations.tgz $(VERSION)
+	cp target/lapps-vocabulary.* target/$(VERSION)
+	cd target ; cp -R *.html *.xsd js ns css $(VERSION) && tar czf annotations.tgz $(VERSION)
+	$(SCP) target/annotations.tgz $(REMOTE)
+	ssh -p 22022 anc.org "sudo /usr/local/bin/untar-vocab.sh"
+
+deploy:
 	$(SCP) target/annotations.tgz $(REMOTE)
 	ssh -p 22022 anc.org "sudo /usr/local/bin/untar-vocab.sh"
 

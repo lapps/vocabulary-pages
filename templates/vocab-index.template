@@ -104,6 +104,10 @@ html {
             }
         }
         div(id:'mainContent') {
+        	blockquote """This is a development version of the LAPPS Grid Web Service Exchange
+        	     Vocabulary that is made available for comment and review only. The
+        	     annotations defined here should not be used in production and are
+        	     subject to change without notice."""
             p """The LAPPS Web Service Exchange Vocabulary defines an ontology of
                  terms for a core of linguistic objects and features exchanged among
                  NLP tools that consume and produce linguistically annotated data.

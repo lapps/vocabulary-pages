@@ -12,7 +12,7 @@ if (versionFile.exists()) {
 	version = versionFile.text.trim()
 }
 
-TYPE = "http://vocab.lappsgrid.org/xsd/Datatype"
+TYPE = "http://vocab.lappsgrid.org/$version/Datatype"
 
 XSD = [
 	string: 'xsd:string',
@@ -334,7 +334,7 @@ Token {
             description "Orthographic properties of the token such as LowerCase, UpperCase, UpperInitial, etc. Ideally a URI referencing a pre-defined descriptor."
             discriminator true
         }
-        morphology {
+        morph {
         	type XSD.morphology
         	description "Morphology"
         	discriminator true
@@ -516,7 +516,7 @@ Datatypes {
 	}
 	complex('morphology') {
 	    sequence {
-	        element type:'xs:string', name:'majorWordClass'
+	        element name:'majorWordClass', type:'xs:string'
 	        element name:'wordClass', type:'xs:string'
 	        element name:'prefix', type:'xs:string'
 	        element name:'suffix', type:'xs:string'

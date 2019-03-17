@@ -237,8 +237,8 @@ pre
     padding: 0 0 0 15px;
     margin: 10px 0 10px 15px;
     width: auto;
-    float: right;
-    border-left: thin dotted #000;
+    /* float: right; */
+    border: thin dotted #000;
 }
 
 

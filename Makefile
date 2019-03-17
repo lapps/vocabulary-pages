@@ -1,5 +1,7 @@
-#VERSION=$(shell cat VERSION)
-VERSION=1.3.0
+VERSION=$(shell cat VERSION)
+#VERSION_BARE=$(shell cat VERSION | sed 's/-SNAPSHOT//')
+
+#VERSION=1.3.0
 VOCABULARY=lapps.vocabulary
 DISCRIMINATORS=lapps.discriminators
 REMOTE_DIR=/home/www/anc/LAPPS/vocab
@@ -20,7 +22,7 @@ help:
 	@echo "rdf        - Generates RDF, OWL, and JSON versions of the vocabulary"
 	@echo "all        - Generates all files (HTML, JAVA, RDF)"
 	@echo "upload     - Uploads HTML files to the server."
-	@echo "upload-rdf - Uploads RDF files to the server."
+	@echo "upload-rdf - Uploads RDF files to the server. (DO NOT USE FOR SNAPSHOT VERSIONS)"
 	@echo "commit     - Creates pull requests for the generated Java files."
 	@echo "release    - Does everything."
 	@echo "clean      - Removes all html pages and the tgz archive."
@@ -103,7 +105,10 @@ upload-rdf:
 	$(SCP) target/lapps-vocabulary.jsonld $(REMOTE)/index.jsonld
 	$(SCP) target/lapps-vocabulary.ttl $(REMOTE)/index.ttl
 
-release: all upload upload-rdf commit
+# The upload-rdf goal needs to be fixed before this can be safely used. Currently
+# upload-rdf will stomp all over the current release files when a SNAPSHOT is
+# deployed.
+#release: all upload upload-rdf commit
 
 clean:
 	rm -rf target

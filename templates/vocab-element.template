@@ -11,12 +11,15 @@ makeLinks = { String text ->
 	return text.replaceAll("<link>(.*?)</link>", "<a href='\$1.html'>\$1</a>")
 }
 
-getTypeString = { String type ->
+getTypeString = { String version, String type ->
 	if (type.startsWith('http')) {
 		int index = type.lastIndexOf('/')
 		String name = type.substring(index + 1)
 		type = type.replaceAll("-SNAPSHOT", "")
 		return "<a href='$type'>$name</a>"
+	}
+	if (type.startsWith('Datatype#')) {
+		return "<a href='http://vocab.lappsgrid.org/$version/$type'>$type</a>"
 	}
 	return type
 }
@@ -126,7 +129,7 @@ html {
                                 tr {
                                     def property = node.metadata[name]
                                     td name
-                                    td { mkp.yieldUnescaped getTypeString(property.type) }
+                                    td { mkp.yieldUnescaped getTypeString(version, property.type) }
                                     td {
                                         mkp.yieldUnescaped makeLinks(property.description)
                                     }
@@ -164,7 +167,7 @@ html {
                                 tr {
                                     def property = node.properties[name]
                                     td name
-                                    td { mkp.yieldUnescaped getTypeString(property.type) }
+                                    td { mkp.yieldUnescaped getTypeString(version, property.type) }
                                     td {
 	                                    if (property.required) {
                                                 mkp.yieldUnescaped "${makeLinks(property.description)} <span class='required'>[Required]</span>"

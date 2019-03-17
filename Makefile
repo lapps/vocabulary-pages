@@ -46,7 +46,7 @@ discriminators:
 endif
 	
 html:
-	./bin/vocab --html ./templates/vocab-element.template --index ./templates/vocab-index.template --output target $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --html ./templates/vocab-element.template --index ./templates/vocab-index.template --output target $(VOCABULARY) 
 	./bin/ddsl --html ./target/discriminators.html --template ./templates/discriminator-index.template $(DISCRIMINATORS)
 	./bin/ddsl --pages target/ --template ./templates/discriminator-page.template $(DISCRIMINATORS)
 	cp -rf html/* target
@@ -57,11 +57,11 @@ java:
 	./bin/ddsl --java $(DISCRIMINATORS)	
 
 rdf:
-	./bin/vocab --output target --rdf rdf $(VOCABULARY) 
-	./bin/vocab --output target --rdf owl $(VOCABULARY) 
-	./bin/vocab --output target --rdf ttl $(VOCABULARY) 
-	./bin/vocab --output target --rdf jsonld $(VOCABULARY) 
-	./bin/vocab --output target --xsd $(VOCABULARY)
+	./bin/vocab -v $(VERSION) --output target --rdf rdf $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --output target --rdf owl $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --output target --rdf ttl $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --output target --rdf jsonld $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --output target --xsd $(VOCABULARY)
 	
 xsd:
 	./bin/vocab --output target --xsd $(VOCABULARY)

@@ -6,13 +6,16 @@
 schema="http://schema.org"
 iso="http://www.isocat.org/datcat"
 
+/*
 version='1.2.9-SNAPSHOT'
 File versionFile = new File('VERSION')
 if (versionFile.exists()) {
 	version = versionFile.text.trim()
 }
+*/
 
-TYPE = "http://vocab.lappsgrid.org/$version/Datatype"
+//TYPE = "http://vocab.lappsgrid.org/$version/Datatype"
+TYPE = "Datatype"
 
 XSD = [
 	string: 'xsd:string',
@@ -44,7 +47,7 @@ Annotation {
 	sameAs "$iso/DC-2318"
 	metadata {
 	    producer {
-	        type "List of URI"
+	        type XSD.list_uri
 	        description "The software that produced the annotations."
 	    }
 	    rules {
@@ -74,7 +77,7 @@ Region {
 	 property."""
 	properties {
 		targets {
-			type "List of IDs"
+			type XSD.list_uri
 			description """IDs of a sequence of annotations covering the region of primary data referred to by this annotation. Used as an alternative to <em>start</em> and <em>end</em> to point to component annotations (e.g., a token sequence) rather than directly into primary data, or to link two or more annotations (e.g., in a coreference annotation)."""
 		}
 		start {

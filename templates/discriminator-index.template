@@ -19,7 +19,7 @@ html {
                 div(id:'pageHeader') {
                     h1 "LAPPS Web Service URI Inventory"
                     h2 '(aka Discriminators)'
-                    h3 "v${version}"
+                    h2 "v${version}"
                 }
             }
             div(id:'mainContent') {

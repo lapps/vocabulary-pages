@@ -145,6 +145,18 @@ ud {
 
 include 'target/vocabulary.config'
 
+chunk {
+	uri vocab('Chunk')
+	description "Any type of annotations that segments the primary data into chunks."
+}
+lookup {
+	uri vocab('Lookup')
+	description "Dictionary based annotations. Used in GATE."
+}
+matches {
+	uri vocab('Matches')
+	description "Definition needed."
+}
 
 /*
  * Part-of-Speech Tag sets.

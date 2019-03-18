@@ -8,5 +8,9 @@ files = [
     [
         file: 'target/Features.java',
         path: 'src/main/java/org/lappsgrid/vocabulary/Features.java'
+    ],
+    [
+        file: 'target/Metadata.java',
+        path: 'src/main/java/org/lappsgrid/vocabulary/Metadata.java'
     ]
 ]

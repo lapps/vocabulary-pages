@@ -6,7 +6,26 @@
 schema="http://schema.org"
 iso="http://www.isocat.org/datcat"
 
-version='1.2.0'
+/*
+version='1.2.9-SNAPSHOT'
+File versionFile = new File('VERSION')
+if (versionFile.exists()) {
+	version = versionFile.text.trim()
+}
+*/
+
+//TYPE = "http://vocab.lappsgrid.org/$version/Datatype"
+TYPE = "Datatype"
+
+XSD = [
+	string: 'xsd:string',
+	id:     'xsd:ID',
+	idrefs: 'xsd:IDREFS',
+	uri:    'xsd:anyURI',
+	long:   'xsd:long',
+	list_uri: "${TYPE}#list_uri",
+	morphology: "${TYPE}#morphology"
+]
 
 // Message to be displayed for deprecated named entities.
 NE_DEPRECATED = '''Use <link>NamedEntity</link> with appropriate @category and @type attributes instead. This annotation type will be removed in a future version of the vocabulary.'''
@@ -28,7 +47,7 @@ Annotation {
 	sameAs "$iso/DC-2318"
 	metadata {
 	    producer {
-	        type "List of URI"
+	        type XSD.list_uri
 	        description "The software that produced the annotations."
 	    }
 	    rules {
@@ -58,7 +77,7 @@ Region {
 	 property."""
 	properties {
 		targets {
-			type "List of IDs"
+			type XSD.list_uri
 			description """IDs of a sequence of annotations covering the region of primary data referred to by this annotation. Used as an alternative to <em>start</em> and <em>end</em> to point to component annotations (e.g., a token sequence) rather than directly into primary data, or to link two or more annotations (e.g., in a coreference annotation)."""
 		}
 		start {
@@ -195,6 +214,45 @@ NamedEntity {
     }
 }
 
+Morphology {
+	parent 'Region'
+	definition 'Morphological description for a word or token.'
+	properties {
+		wordClass {
+			type 'String'
+			description ''
+		}
+		majorWordClass {
+			type 'String'
+			description ''
+		}
+		syntax {
+			type 'String'
+			description ''
+		}
+		tense {
+			type 'String'
+			description ''
+		}
+		person {
+			type 'String'
+			description ''
+		}
+		number {
+			type 'String'
+			description ''
+		}
+		prefix {
+			type 'String'
+			description ''
+		}
+		suffix {
+			type 'String'
+			description ''
+		}
+	}
+}
+
 Date {
     parent "NamedEntity"
     definition "A reference to a date or period."
@@ -263,10 +321,12 @@ Token {
         pos {
             type "String or URI"
             description "Part-of-speech tag associated with the token."
+            discriminator true
         }
         lemma {
             type "String or URI"
             description "The root (base) form associated with the token. URI may point to a lexicon entry."
+            discriminator true
         }
         tokenType {
             type "String or URI"
@@ -275,6 +335,12 @@ Token {
         orth {
             type "String or URI"
             description "Orthographic properties of the token such as LowerCase, UpperCase, UpperInitial, etc. Ideally a URI referencing a pre-defined descriptor."
+            discriminator true
+        }
+        morph {
+        	type XSD.morphology
+        	description "Morphology"
+        	discriminator true
         }
         length {
             type "Integer"
@@ -439,3 +505,29 @@ AudioDocument {
     definition "Any electronic media content consisting of audio (language). An audio document may consist of several physical computer files."
     parent "Document"
 }
+
+/*
+ * Custom types used to generate the XML Schema
+ */
+Datatypes {
+	simple('list_uri') {
+	    restriction {
+	        simpleType {
+	            list itemType:'xs:anyURI'
+	        }
+	    }
+	}
+	complex('morphology') {
+	    sequence {
+	        element name:'majorWordClass', type:'xs:string'
+	        element name:'wordClass', type:'xs:string'
+	        element name:'prefix', type:'xs:string'
+	        element name:'suffix', type:'xs:string'
+	        element name:'number', type:'xs:string'
+	        element name:'person', type:'xs:string'
+	        element name:'syntax', type:'xs:string'
+	        element name:'tense', type:'xs:string'
+	    }
+	}
+}
+

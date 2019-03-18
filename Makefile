@@ -1,9 +1,12 @@
+VERSION=$(shell cat VERSION)
+#VERSION_BARE=$(shell cat VERSION | sed 's/-SNAPSHOT//')
+
+#VERSION=1.3.0
 VOCABULARY=lapps.vocabulary
 DISCRIMINATORS=lapps.discriminators
 REMOTE_DIR=/home/www/anc/LAPPS/vocab
 REMOTE=anc.org:$(REMOTE_DIR)
 SCP=scp -P 22022
-
 .PHONY: html
 
 help:
@@ -19,7 +22,7 @@ help:
 	@echo "rdf        - Generates RDF, OWL, and JSON versions of the vocabulary"
 	@echo "all        - Generates all files (HTML, JAVA, RDF)"
 	@echo "upload     - Uploads HTML files to the server."
-	@echo "upload-rdf - Uploads RDF files to the server."
+	@echo "upload-rdf - Uploads RDF files to the server. (DO NOT USE FOR SNAPSHOT VERSIONS)"
 	@echo "commit     - Creates pull requests for the generated Java files."
 	@echo "release    - Does everything."
 	@echo "clean      - Removes all html pages and the tgz archive."
@@ -45,7 +48,7 @@ discriminators:
 endif
 	
 html:
-	./bin/vocab --html ./templates/vocab-element.template --index ./templates/vocab-index.template --output target $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --html ./templates/vocab-element.template --index ./templates/vocab-index.template --output target $(VOCABULARY) 
 	./bin/ddsl --html ./target/discriminators.html --template ./templates/discriminator-index.template $(DISCRIMINATORS)
 	./bin/ddsl --pages target/ --template ./templates/discriminator-page.template $(DISCRIMINATORS)
 	cp -rf html/* target
@@ -56,11 +59,15 @@ java:
 	./bin/ddsl --java $(DISCRIMINATORS)	
 
 rdf:
-	./bin/vocab --output target --rdf rdf $(VOCABULARY) 
-	./bin/vocab --output target --rdf owl $(VOCABULARY) 
-	./bin/vocab --output target --rdf ttl $(VOCABULARY) 
-	./bin/vocab --output target --rdf jsonld $(VOCABULARY) 
-
+	./bin/vocab -v $(VERSION) --output target --rdf rdf $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --output target --rdf owl $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --output target --rdf ttl $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --output target --rdf jsonld $(VOCABULARY) 
+	./bin/vocab -v $(VERSION) --output target --xsd $(VOCABULARY)
+	
+xsd:
+	./bin/vocab --output target --xsd $(VOCABULARY)
+	
 all: clean vocabulary html java rdf
 
 ifeq ($(TOKEN),)
@@ -78,7 +85,13 @@ commit:
 endif
 
 upload:
-	cd target ; tar czf annotations.tgz *.html ns js css
+	mkdir target/$(VERSION)
+	cp target/lapps-vocabulary.* target/$(VERSION)
+	cd target ; cp -R *.html *.xsd js ns css $(VERSION) && tar czf annotations.tgz $(VERSION)
+	$(SCP) target/annotations.tgz $(REMOTE)
+	ssh -p 22022 anc.org "sudo /usr/local/bin/untar-vocab.sh"
+
+deploy:
 	$(SCP) target/annotations.tgz $(REMOTE)
 	ssh -p 22022 anc.org "sudo /usr/local/bin/untar-vocab.sh"
 
@@ -92,7 +105,10 @@ upload-rdf:
 	$(SCP) target/lapps-vocabulary.jsonld $(REMOTE)/index.jsonld
 	$(SCP) target/lapps-vocabulary.ttl $(REMOTE)/index.ttl
 
-release: all upload upload-rdf commit
+# The upload-rdf goal needs to be fixed before this can be safely used. Currently
+# upload-rdf will stomp all over the current release files when a SNAPSHOT is
+# deployed.
+#release: all upload upload-rdf commit
 
 clean:
 	rm -rf target

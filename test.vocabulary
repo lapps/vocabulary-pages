@@ -1,0 +1,51 @@
+version='0.0.1'
+
+Root {
+	definition "Root type for this example"
+	properties {
+		id {
+			type "URI"
+			description "A unique identifier"
+		}
+	}
+}
+
+Annotation {
+	parent "Root"
+	definition "An annotation"
+	properties {
+		start {
+			type "Integer"
+			description "The start of the annotation"
+		}
+		end {
+			type "Integer"
+			description "The end of the annotation"
+		}
+	}
+}
+
+Token {
+	parent "Annotation"
+	definition "A token"
+	properties {
+		length {
+			type "Integer"
+			description "The length of the token"
+		}
+		word {
+			type "String"
+			description "The string as it appears in the original text"
+		}
+		pos {
+			type "URI or String"
+			description "part of speech"
+			discriminator true
+		}
+		lemma {
+			type "String"
+			description "lemma for the word"
+			discriminator true
+		}
+	}
+}

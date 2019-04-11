@@ -13,7 +13,8 @@ https://github.com/lapps/vocabulary-pages/compare/1.2.0...develop
     - `hepple`
     - `custom` for catch-all
 
-## Version 1.1.0 - 2017-05-18
+
+## Version 1.2.0 - 2018-11-14
 
 https://github.com/lapps/vocabulary-pages/compare/1.1.0...1.2.0
 
@@ -31,7 +32,7 @@ https://github.com/lapps/vocabulary-pages/compare/1.1.0...1.2.0
 
 https://github.com/lapps/vocabulary-pages/compare/1.0.0...1.1.0
 
-- Added versioned discriminators. 
+- Added versioned discriminators.
 - Added `type` meta data property to `Annotation` type.
 - Added definition for the `Relation` type.
 - Added definition for the `Paragraph` type.

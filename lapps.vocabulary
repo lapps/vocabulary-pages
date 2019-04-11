@@ -78,7 +78,7 @@ Region {
 	properties {
 		targets {
 			type XSD.list_uri
-			description """IDs of a sequence of annotations covering the region of primary data referred to by this annotation. Used as an alternative to <em>start</em> and <em>end</em> to point to component annotations (e.g., a token sequence) rather than directly into primary data, or to link two or more annotations (e.g., in a coreference annotation)."""
+			description """IDs of a sequence of annotations covering the region of primary data referred to by this annotation. Used as an alternative to <em>start</em> and <em>end</em> to point to component annotations (e.g., a token sequence) rather than directly into primary data, or to link two or more annotations."""
 		}
 		start {
 			type "Integer"

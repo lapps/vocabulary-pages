@@ -24,6 +24,9 @@ getTypeString = { String version, String type ->
 	}
 	if (type.startsWith('Datatype#')) {
 		//version = normalizeVersion(version)
+		if (release) {
+			return "<a href='http://vocab.lappsgrid.org/$type'>$type</a>"
+		}
 		return "<a href='http://vocab.lappsgrid.org/$version/$type'>$type</a>"
 	}
 	return type
@@ -48,10 +51,12 @@ html {
                         a(href:'index.html', 'Home')
                     }
                 }
-	        	blockquote """This is a development version of the LAPPS Grid Web Service Exchange
-        	        Vocabulary that is made available for comment and review only. The
-        	        annotations defined here should not be used in production and are
-        	        subject to change without notice."""
+                if (!release) {
+					blockquote """This is a development version of the LAPPS Grid Web Service Exchange
+						Vocabulary that is made available for comment and review only. The
+						annotations defined here should not be used in production and are
+						subject to change without notice."""
+                }
                 p(class:'head') {
                     parents.each { parent ->
                         a(href:"${parent.name}.html", parent.name)

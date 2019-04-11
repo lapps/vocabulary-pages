@@ -57,7 +57,7 @@ html {
                             }
                             td {
                                 if (type.uri.startsWith('http://vocab.lappsgrid.org')) {
-                                    a href:type.uri, type.uri
+                                    a href:type.uri.substring(27), type.uri
                                 }
                                 else {
                                     span type.uri
@@ -80,7 +80,7 @@ html {
                             //td width:'10%', "URI"
                             if (type.uri.startsWith('http://vocab.lappsgrid.org')) {
                                 td {
-                                    a href:type.uri, type.uri
+                                    a href:type.uri.substring(27), type.uri
                                 }
                             }
                             else {

@@ -234,7 +234,7 @@ Morphology {
 			type 'String'
 			description 'Nouns: singular/plural'
 		}
-		case {
+		'case' {
 			type 'String'
 			description 'Nouns: nominative, genetive, dative'
 		}
@@ -276,15 +276,15 @@ Morphology {
 		}
 		syntax {
 			type 'String'
-			description ''
+			description 'No description available'
 		}
 		prefix {
 			type 'String'
-			description ''
+			description 'No description available'
 		}
 		suffix {
 			type 'String'
-			description ''
+			description 'No description available'
 		}
 	}
 }

@@ -39,9 +39,9 @@ html {
                 discriminators[1..-1].each { d ->
                     a name:"${d.fragment.substring(1)}", ''
                     h2 d.discriminator.uri
-		    mkp.yieldUnescaped "\n      <p>"
-		    mkp.yieldUnescaped makeLinks(d.discriminator.description)
-		    mkp.yieldUnescaped "</p>"
+		    		mkp.yieldUnescaped "\n      <p>"
+				    mkp.yieldUnescaped makeLinks(d.discriminator.description)
+				    mkp.yieldUnescaped "</p>"
                 }
             }
 			div {

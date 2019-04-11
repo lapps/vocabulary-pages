@@ -16,6 +16,6 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 MEMSIZE=4G
-JAR=discriminator-1.1.1.jar
+JAR=discriminator-1.2.0-SNAPSHOT.jar
 
 java -jar $DIR/$JAR $@

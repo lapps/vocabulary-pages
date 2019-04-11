@@ -220,25 +220,61 @@ Morphology {
 	properties {
 		wordClass {
 			type 'String'
-			description ''
+			description 'No description'
 		}
 		majorWordClass {
 			type 'String'
-			description ''
+			description 'No description'
 		}
-		syntax {
+		gender {
 			type 'String'
-			description ''
+			description 'Nouns: masculine/feminine/neuter'
+		}
+		number {
+			type 'String'
+			description 'Nouns: singular/plural'
+		}
+		case {
+			type 'String'
+			description 'Nouns: nominative, genetive, dative'
+		}
+		degree {
+			type 'String'
+			description 'Adjectives: compartive/superlative'
+		}
+		verbForm {
+			type 'String'
+			description 'No description'
 		}
 		tense {
 			type 'String'
-			description ''
+			description 'Verbs: past, present, future, etc.'
+		}
+		mood {
+			type 'String'
+			description 'Verbs: indicative, imperative, subjunctive'
+		}
+		voice {
+			type 'String'
+			description 'Verbs: active/passive'
+		}
+		definiteness {
+			type 'String'
+			description 'definite/indefinite'
+		}
+		value {
+			type 'String'
+			description 'The original morphological analysis results as produced by a tool or as recorded in a corpus (if available).'
 		}
 		person {
 			type 'String'
-			description ''
+			description 'Verbs: 1st, 2nd, 3rd person'
 		}
-		number {
+		aspect {
+			type 'String'
+			description 'Verbs: perfective, imperfective'
+		}
+		syntax {
 			type 'String'
 			description ''
 		}

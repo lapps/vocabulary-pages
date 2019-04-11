@@ -1,7 +1,5 @@
 VERSION=$(shell cat VERSION)
-#VERSION_BARE=$(shell cat VERSION | sed 's/-SNAPSHOT//')
 
-#VERSION=1.3.0
 VOCABULARY=lapps.vocabulary
 DISCRIMINATORS=lapps.discriminators
 REMOTE_DIR=/home/www/anc/LAPPS/vocab
@@ -32,7 +30,7 @@ help:
 vocabulary: 
 	chmod a+x bin/vocab
 	chmod a+x bin/ddsl
-	./bin/vocab --discriminators $(VOCABULARY)
+	./bin/vocab -V $(VERSION) --discriminators $(VOCABULARY)
 
 ifeq ($(TOKEN),)
 discriminators: 
@@ -40,33 +38,33 @@ discriminators:
 	@echo 
 else
 discriminators:
-	./bin/ddsl --html ./target/discriminators.html --template ./templates/discriminator-index.template $(DISCRIMINATORS)
-	./bin/ddsl --pages target/ --template ./templates/discriminator-page.template $(DISCRIMINATORS)
+	./bin/ddsl -V $(VERSION) --html ./target/discriminators.html --template ./templates/discriminator-index.template $(DISCRIMINATORS)
+	./bin/ddsl -V $(VERSION) --pages target/ --template ./templates/discriminator-page.template $(DISCRIMINATORS)
 	cp -rf html/* target
-	./bin/ddsl --java $(DISCRIMINATORS)	
+	./bin/ddsl -V $(VERSION) --java $(DISCRIMINATORS)	
 	./bin/ghc -f discriminators.commit -t $(TOKEN)
 endif
 	
 html:
-	./bin/vocab -v $(VERSION) --html ./templates/vocab-element.template --index ./templates/vocab-index.template --output target $(VOCABULARY) 
-	./bin/ddsl --html ./target/discriminators.html --template ./templates/discriminator-index.template $(DISCRIMINATORS)
-	./bin/ddsl --pages target/ --template ./templates/discriminator-page.template $(DISCRIMINATORS)
+	./bin/vocab -V $(VERSION) --html ./templates/vocab-element.template --index ./templates/vocab-index.template --output target $(VOCABULARY) 
+	./bin/ddsl -V $(VERSION) --html ./target/discriminators.html --template ./templates/discriminator-index.template $(DISCRIMINATORS)
+	./bin/ddsl -V $(VERSION) --pages target/ --template ./templates/discriminator-page.template $(DISCRIMINATORS)
 	cp -rf html/* target
 
 java:
-	./bin/vocab  --java Annotations --package org.lappsgrid.vocabulary --output target $(VOCABULARY)
-	./bin/vocab --features --output target $(VOCABULARY)
-	./bin/ddsl --java $(DISCRIMINATORS)	
+	./bin/vocab -V $(VERSION) --java Annotations --package org.lappsgrid.vocabulary --output target $(VOCABULARY)
+	./bin/vocab -V $(VERSION) --features --output target $(VOCABULARY)
+	./bin/ddsl -V $(VERSION) --java $(DISCRIMINATORS)	
 
 rdf:
-	./bin/vocab -v $(VERSION) --output target --rdf rdf $(VOCABULARY) 
-	./bin/vocab -v $(VERSION) --output target --rdf owl $(VOCABULARY) 
-	./bin/vocab -v $(VERSION) --output target --rdf ttl $(VOCABULARY) 
-	./bin/vocab -v $(VERSION) --output target --rdf jsonld $(VOCABULARY) 
-	./bin/vocab -v $(VERSION) --output target --xsd $(VOCABULARY)
+	./bin/vocab -V $(VERSION) --output target --rdf rdf $(VOCABULARY) 
+	./bin/vocab -V $(VERSION) --output target --rdf owl $(VOCABULARY) 
+	./bin/vocab -V $(VERSION) --output target --rdf ttl $(VOCABULARY) 
+	./bin/vocab -V $(VERSION) --output target --rdf jsonld $(VOCABULARY) 
+	./bin/vocab -V $(VERSION) --output target --xsd $(VOCABULARY)
 	
 xsd:
-	./bin/vocab --output target --xsd $(VOCABULARY)
+	./bin/vocab -V $(VERSION) --output target --xsd $(VOCABULARY)
 	
 all: clean vocabulary html java rdf
 

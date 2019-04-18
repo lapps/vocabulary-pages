@@ -1,6 +1,16 @@
 /*
  * This template is used to generate the discriminators.html file for the
  * LAPPS vocabulary web site.
+ *
+ * MAGIC VARIABLES
+ *
+ * Two variables, `version` and `discriminators` are injected into the script
+ * at runtime.  
+ * - version:  the value of the -V command line parameter.
+ * - discriminators: a list of the discriminators parsed from the 
+ *   lapps.discriminators DSL file.  Each object in the list is actually
+ *   an instance of org.lappsgrid.discriminator.dsl.DiscriminatorDelegate and
+ *   contains fields for 'name', 'uri', and 'description'.
  */
 
 makeLinks = { String text ->

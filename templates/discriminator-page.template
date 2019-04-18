@@ -1,5 +1,11 @@
 /*
  * Template used to generate a single HTML page for a discriminator.
+ *
+ * MAGIC VARIABLES
+ *
+ * page: an instance of org.lappsgrid.discriminator.generators.Page is inject
+ *       which contains information about the discriminator.
+ * version: the value of the -V command line parameter.
  */
 
 makeLinks = { String text ->

@@ -13,10 +13,12 @@ load = { new File(it).text }
 
 /*
  * Base types.
+ * ------------------------------------------------------
  */
+
 error {
     uri ns('error')
-    description "Used to indicate that the server encountered an error while processing the request.  The payload SHOULD contain an error message."
+    description "Used to indicate that the server encountered an error while processing the request. The payload SHOULD contain an error message."
 }
 ok {
     uri ns('ok')
@@ -42,11 +44,13 @@ deprecated {
     uri ns('deprecated')
     description 'Parent type for other deprecated discriminators.'
 }
- 
+
 
 /*
  * System requests and responses.
+ * ------------------------------------------------------
  */
+
 system {
     uri ns('system')
     description 'Parent type for Data objects contains system requests or responses.'
@@ -64,7 +68,9 @@ authorization {
 
 /*
  * Text formats
+ * ------------------------------------------------------
  */
+
 "one-per-line" {
     uri _text('newline-separated')
     description "A list of strings separate by a single newline (0x0D) character."
@@ -85,7 +91,9 @@ csv {
 
 /*
  * Document types.
+ * ------------------------------------------------------
  */
+
 gate {
     description "A GATE/XML document."
     uri _xml('gate')
@@ -139,8 +147,10 @@ ud {
 	description "Universal Dependencies. See <link>http://universaldependencies.org</link>"
 }
 
+
 /*
  * Annotation types.
+ * ------------------------------------------------------
  */
 
 include 'target/vocabulary.config'
@@ -158,9 +168,10 @@ matches {
 	description "Definition needed."
 }
 
+
 /*
  * Part-of-Speech Tag sets.
- * ------------------------
+ * ---------------------------------------------------
  */
 
 'tags-pos' {
@@ -188,10 +199,25 @@ matches {
     description 'The Penn Treebank part-of-speech tag set used by the TreeTagger, which has a few more tags, see <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#tagset-en-ptb-tt-pos</link>.'
 }
 
+'tag-pos-claws5' {
+    uri ns('tagset/pos#claws5')
+    description 'The C5 tagset for the <a href="http://ucrel.lancs.ac.uk/claws/">CLAWS part-of-speech tagger</a>, with 62 tags. See <link>http://ucrel.lancs.ac.uk/claws5tags.html</link>.'
+}
+
+'tag-pos-claws6' {
+    uri ns('tagset/pos#claws6')
+    description 'The C6 tagset for the <a href="http://ucrel.lancs.ac.uk/claws/">CLAWS part-of-speech tagger</a>, with 148 tags. See <link>http://ucrel.lancs.ac.uk/claws6tags.html</link>.'
+}
+
+'tag-pos-claws7' {
+    uri ns('tagset/pos#claws7')
+    description 'The C7 tagset for the <a href="http://ucrel.lancs.ac.uk/claws/">CLAWS part-of-speech tagger</a>, with 137 tags. This is the CLAWS6 tagset minus 11 punctuation tags. See <link>http://ucrel.lancs.ac.uk/claws7tags.html</link>.'
+}
+
 
 /*
  * Phrase structure categories
- * ---------------------------
+ * ------------------------------------------------------
  */
 
 'tags-cat' {
@@ -207,7 +233,7 @@ matches {
 
 /*
  * Dependency Sets
- * ---------------------------
+ * ------------------------------------------------------
  */
 
 'tags-dep' {
@@ -223,7 +249,7 @@ matches {
 
 /*
  * Named Entity Category Sets.
- * ---------------------------
+ * ------------------------------------------------------
  */
 
 'tags-ner' {
@@ -258,13 +284,36 @@ matches {
 
 'tags-ner-bio-genetag' {
     uri ns('tagset/ner#bio-opennlp')
-    description 'Named entity category set used in the GeneTag data in the MedTag corpus (<linl>ftp://ftp.ncbi.nlm.nih.gov/pub/lsmith/MedTag/</link>.'
+    description 'Named entity category set used in the GeneTag data in the MedTag corpus (<link>ftp://ftp.ncbi.nlm.nih.gov/pub/lsmith/MedTag/</link>.'
+}
+
+
+/*
+ * Semantic tags.
+ * ------------------------------------------------------
+ */
+
+'tags-sem' {
+    uri ns('tagset/sem')
+    description 'Semantic tags.'
+}
+
+'tags-sem-asus' {
+    uri ns('tagset/sem#asus')
+    description 'Semantic tags from the UCREL Semantic Analysis System (USAS, <link>http://ucrel.lancs.ac.uk/usas/</link>. The full list of 232 tags is at <link>http://ucrel.lancs.ac.uk/usas/semtags.txt</link>.'
+}
+
+'tags-sem-bio-go' {
+    uri ns('tagset/sem#go')
+    description 'Classes from the Gene Ontology (GO) with molecular functions, cellular components and biological processes. See <link>http://geneontology.org</link>.'
 }
 
 
 /*
  * Query types.
+ * ------------------------------------------------------
  */
+
 query {
     uri ns('action/query')
     description 'The base type for any type of query contained in the payload of a Data object.'
@@ -326,114 +375,120 @@ solr {
 
 /* 
  * License types
+ * ------------------------------------------------------
  */
+
 license {
     uri ns('license')
-    description 'Recognized license types.'
-}
+    description 'Recognized license types.' }
+
 'public-domain' {
     uri ns("license#public-domain")
-    description 'Works released into the public domain. This includes CC0 or other works marked as "No rights reserved."'
-}
+    description 'Works released into the public domain. This includes CC0 or other works marked as "No rights reserved".'}
+
 'open-source' {
     uri ns('license#open-source')
-    description 'Any open source license recognized by the Open Source Initiative (<link>http://opensource.org</link>)'
-}
+    description 'Any open source license recognized by the Open Source Initiative (<link>http://opensource.org</link>).'}
+
+'non-commercial' {
+    uri ns('license#non-commercial')
+    description 'Any license that prohibits commercial use.'}
+
+restricted {
+    uri ns('license#restricted')
+    description 'Reserved for future use.'}
+
 apache2 {
     uri ns('license#apache-2.0')
-    description 'The Apache 2.0 license. See <link>http://www.apache.org/licenses/LICENSE-2.0.html</link>'
-}
+    description 'The Apache 2.0 license. See <link>http://www.apache.org/licenses/LICENSE-2.0.html</link>.'}
+
 gpl {
     uri ns('license#gpl')
-    description 'The General Public License by the Free Software Foundation. See <link>http://www.gnu.org/copyleft/gpl.html</link>'
-}
+    description 'The General Public License by the Free Software Foundation. See <link>http://www.gnu.org/copyleft/gpl.html</link>.'}
+
+gpl2 {
+    uri ns('license#gpl-2.0')
+    description 'The General Public License (GPL) Version 2.0, see <link>https://www.gnu.org/licenses/gpl-2.0.html</link>.'}
+
+gpl3 {
+    uri ns('license#gpl-3.0')
+    description 'The General Public License (GPL) Version 3.0, see <link>https://www.gnu.org/licenses/gpl-3.0.html</link>.'}
+
 lgpl {
     uri ns('license#lgpl')
     description 'The Lesser General Public License by the Free Software Foundation. See <link>http://www.gnu.org/copyleft/lgpl.html</link>'
 }
-bsd {
-    uri ns('license#bsd')
-    description 'The original (4 clause) BSD license. It is a free software license, but is not compatible with the GPL.'
-}
-eclipse {
-    uri ns('license#eclipse')
-    description 'The Eclipse Public License (EPL) 1.0'
-}
-'no-commercial' {
-    uri ns('license#non-commercial')
-    description 'Any license that prohibits commercial use.'
-}
-restricted {
-    uri ns('license#restricted')
-    description 'Reserved for future use.'
-}
-gpl2 {
-    uri ns('license#gpl-2.0')
-    description 'The General Public License (GPL) Version 2.0'
-}
-gpl3 {
-    uri ns('license#gpl-3.0')
-    description 'The General Public License (GPL) Version 3.0'
-}
+
 lgpl21 {
     uri ns('license#lgpl-2.1')
-    description 'The Lesser General Public License (LGPL) Version 2.1'
-}
+    description 'The Lesser General Public License (LGPL) Version 2.1, see <link>https://www.gnu.org/licenses/lgpl-2.1.html</link>.'}
+
 lgpl3 {
     uri ns('license#lgpl-3.0')
-    description 'The Lesser General Public License (LGPL) Version 3.0'
+    description 'The Lesser General Public License (LGPL) Version 3.0, see <link>https://www.gnu.org/licenses/lgpl-3.0.html</link>.'}
+
+eclipse {
+    uri ns('license#eclipse')
+    description 'The Eclipse Public License (EPL) 1.0, see <link>https://www.eclipse.org/legal/epl-v10.html</link>.'}
+
+bsd {
+    uri ns('license#bsd')
+    description 'The original (4 clause) BSD license. It is a free software license, but is not compatible with the GPL. See <link>https://en.wikipedia.org/wiki/BSD_licenses</link>.'
 }
+
 bsd2 {
     uri  ns('license#bsd-2-clause')
-    description 'Two clause BSD license.'
-}
+    description 'Two clause BSD license, see <link>https://en.wikipedia.org/wiki/BSD_licenses</link>.'}
+
 bsd3 {
     uri  ns('license#bsd-3-clause')
-    description 'Three clause BSD license.'
-}
+    description 'Three clause BSD license, see <link>https://en.wikipedia.org/wiki/BSD_licenses</link>.'}
+
 mit {
     uri ns('license#mit')
-    description 'The MIT license.'
-}
+    description 'The MIT license, see <link>https://en.wikipedia.org/wiki/MIT_License</link>.'}
+
 cc {
     uri ns('license#cc')
-    description 'The Creative Commons family of licenses. See <link>https://creativecommons.org/licenses/</link>'
-}
+    description 'The Creative Commons family of licenses. See <link>https://creativecommons.org/licenses/</link>.'}
+
 cc0 {
     uri ns('license#cc0')
-    description 'Creative Commons Zero (CC0) licenses. Essentially a public domain license.'
-}
+    description 'Creative Commons Zero (CC0) licenses. Essentially a public domain license. See <link>https://creativecommons.org/publicdomain/zero/1.0/</link>.'}
+
 'cc-by' {
     uri ns('license#cc-by')
-    description 'Creative Commons Attribution required'
-}
+    description 'Creative Commons Attribution required, see <link>https://creativecommons.org/licenses/by/4.0/</link>.'}
+
 'cc-by-sa' {
     uri ns('license#cc-by-sa')
-    description 'Creative Commons Attribution ShareAlike'
-}
+    description 'Creative Commons Attribution ShareAlike, see <link>https://creativecommons.org/licenses/by-sa/4.0/</link>.'}
+
 'cc-by-nd' {
     uri ns('license#cc-by-nd')
-    description 'Creative Commons Attribution No Derivatives'
-}
+    description 'Creative Commons Attribution No Derivatives, see <link>https://creativecommons.org/licenses/by-nd/4.0/</link>.'}
+
 'cc-by-nc' {
     uri ns('license#cc-by-nc')
-    description 'Creative Commons Attribution Non-Commercial'
-}
+    description 'Creative Commons Attribution Non-Commercial, see <link>https://creativecommons.org/licenses/by-nc/4.0/</link>.'}
+
 'cc-by-nc-sa' {
     uri ns('license#cc-by-nc-sa')
-    description 'Creative Commons Attribution Non-Commercial ShareAlike'
-}
+    description 'Creative Commons Attribution Non-Commercial ShareAlike, see <link>https://creativecommons.org/licenses/by-nc-sa/4.0/</link>.'}
+
 'cc-by-nc-nd' {
     uri ns('license#cc-by-nc-nd')
-    description 'Creative Commons Attribution Non-Commercial No Derivatives'
-}
+    description 'Creative Commons Attribution Non-Commercial No Derivatives, see <link>https://creativecommons.org/licenses/by-nc-nd/4.0/</link>.'}
+
+
+/*
+ * Allowable usages.
+ * ------------------------------------------------------
+ */
 
 // Helper function for creating URI
 def allow = { ns("allow#$it") }
 
-/*
- * Allowable usages.
- */
 usage {
     uri ns('allow')
     description 'Usage restrictions for services.'
@@ -462,5 +517,3 @@ all {
     uri allow('any')
     description 'The service may be used without restriction.'
 }
-
-

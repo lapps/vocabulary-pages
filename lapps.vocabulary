@@ -214,81 +214,6 @@ NamedEntity {
     }
 }
 
-Morphology {
-	parent 'Region'
-	definition 'Morphological description for a word or token.'
-	properties {
-		wordClass {
-			type 'String'
-			description 'No description'
-		}
-		majorWordClass {
-			type 'String'
-			description 'No description'
-		}
-		gender {
-			type 'String'
-			description 'Nouns: masculine/feminine/neuter'
-		}
-		number {
-			type 'String'
-			description 'Nouns: singular/plural'
-		}
-		'case' {
-			type 'String'
-			description 'Nouns: nominative, genetive, dative'
-		}
-		degree {
-			type 'String'
-			description 'Adjectives: compartive/superlative'
-		}
-		verbForm {
-			type 'String'
-			description 'No description'
-		}
-		tense {
-			type 'String'
-			description 'Verbs: past, present, future, etc.'
-		}
-		mood {
-			type 'String'
-			description 'Verbs: indicative, imperative, subjunctive'
-		}
-		voice {
-			type 'String'
-			description 'Verbs: active/passive'
-		}
-		definiteness {
-			type 'String'
-			description 'definite/indefinite'
-		}
-		value {
-			type 'String'
-			description 'The original morphological analysis results as produced by a tool or as recorded in a corpus (if available).'
-		}
-		person {
-			type 'String'
-			description 'Verbs: 1st, 2nd, 3rd person'
-		}
-		aspect {
-			type 'String'
-			description 'Verbs: perfective, imperfective'
-		}
-		syntax {
-			type 'String'
-			description 'No description available'
-		}
-		prefix {
-			type 'String'
-			description 'No description available'
-		}
-		suffix {
-			type 'String'
-			description 'No description available'
-		}
-	}
-}
-
 Date {
     parent "NamedEntity"
     definition "A reference to a date or period."
@@ -411,7 +336,115 @@ Markable {
 	definition "Annotation type used if the referenced object is not already wrapped in a suitable annotation type that can be referenced."
 }
 
+Morphology {
+	parent 'Region'
+	definition 'Morphological description for a token or morpheme.'
+	properties {
+		morphemes {
+			type 'List of IDs'
+			description 'List of the Morphemes that are part of the target of the Morphology'
+		}
+		wordClass {
+			type 'String'
+			description ''
+		}
+		majorWordClass {
+			type 'String'
+			description 'No description'
+		}
+		gender {
+			type 'String'
+			description 'Nouns: masculine/feminine/neuter'
+		}
+		number {
+			type 'String'
+			description 'Nouns: singular/plural'
+		}
+		'case' {
+			type 'String'
+			description 'Nouns: nominative, genetive, dative'
+		}
+		degree {
+			type 'String'
+			description 'Adjectives: compartive/superlative'
+		}
+		verbForm {
+			type 'String'
+			description 'No description'
+		}
+		tense {
+			type 'String'
+			description 'Verbs: past, present, future, etc.'
+		}
+		mood {
+			type 'String'
+			description 'Verbs: indicative, imperative, subjunctive'
+		}
+		voice {
+			type 'String'
+			description 'Verbs: active/passive'
+		}
+		definiteness {
+			type 'String'
+			description 'definite/indefinite'
+		}
+		value {
+			type 'String'
+			description 'The original morphological analysis results as produced by a tool or as recorded in a corpus (if available).'
+		}
+		person {
+			type 'String'
+			description 'Verbs: 1st, 2nd, 3rd person'
+		}
+		aspect {
+			type 'String'
+			description 'Verbs: perfective, imperfective'
+		}
+		syntax {
+			type 'String'
+			description 'No description available'
+		}
+		prefix {
+			type 'String'
+			description 'No description available'
+		}
+		suffix {
+			type 'String'
+			description 'No description available'
+		}
+	}
+}
+
+Morpheme {
+	parent "Region"
+	definition "A meaningful morphological unit of a language that cannot be further divided."
+	properties {
+		morph {
+		      type "List of IDs of annotations of type Morphology"
+		      description "Morphology"
+		}
+	}
+}
+
+SemanticTag {
+	parent "Region"
+	definition "A semantic tag for a region or for another annotation."
+	metadata {
+		semanticTagsSet {
+			type "String or URI"
+			description "The URI for the set of semantic tags."
+		}
+	}
+	properties {
+		tagName {
+		      type "String or URI"
+		      description "The name of the semantic tag."
+		}
+	}
+}
+
 PhraseStructure {
+        
 	parent "Annotation"
 	definition "A container for phrase structure information."
 	metadata {

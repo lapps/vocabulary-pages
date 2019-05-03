@@ -77,7 +77,6 @@ html {
                     }
                 }
                 h1 'Descriptions'
-                p 'These descriptions need work...'
                 discriminators.each { type ->
                     a(name:type.name, '')
                     h2 type.name

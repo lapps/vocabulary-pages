@@ -314,6 +314,38 @@ Token {
     }
 }
 
+Event {
+      parent 'Region'
+      definition 'An eventuality or state.'
+      metadata {
+		eventClassSet {
+			type "String or URI"
+			description "The URI for the set of semantic tags."
+		}
+      }
+      properties {
+      		 eventClass {
+		       type 'String'
+		       description 'Class of the event'
+		 }
+      }
+}
+
+TimeExpression {
+      parent 'Region'
+      definition 'An eventuality or state.'
+      properties {
+      		 type {
+      		      type: 'String'
+		      description 'Type of time expression: DATE, TIME, DURATION or SET'
+		      }
+      		 value {
+      		      type: 'String'
+		      description 'Normalized value, using some kind of standard like ISO 8601'
+		      }
+      }
+}
+
 Coreference {
 	parent "Annotation"
 	definition "Used to mark references to other mentions of the same entity or instance."

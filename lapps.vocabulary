@@ -336,11 +336,11 @@ TimeExpression {
       definition 'An eventuality or state.'
       properties {
       		 type {
-      		      type: 'String'
-		      description 'Type of time expression: DATE, TIME, DURATION or SET'
+      		      type 'String'      		      
+		      	  description 'Type of time expression: DATE, TIME, DURATION or SET'
 		      }
       		 value {
-      		      type: 'String'
+      		      type 'String'
 		      description 'Normalized value, using some kind of standard like ISO 8601'
 		      }
       }
@@ -452,8 +452,8 @@ Morpheme {
 	definition "A meaningful morphological unit of a language that cannot be further divided."
 	properties {
 		morph {
-		      type "List of IDs of annotations of type Morphology"
-		      description "Morphology"
+		      type "List of IDs"
+		      description "Annotations of type <link>Morphology</link>"
 		}
 	}
 }
@@ -462,15 +462,23 @@ SemanticTag {
 	parent "Region"
 	definition "A semantic tag for a region or for another annotation."
 	metadata {
-		semanticTagsSet {
+		tagSet {
 			type "String or URI"
 			description "The URI for the set of semantic tags."
 		}
 	}
 	properties {
-		tagName {
-		      type "String or URI"
-		      description "The name of the semantic tag."
+		tags {
+		      type "List of Strings"
+		      description "The semantic tag(s) assigned."
+		}
+		mwe {
+			type "List of Strings"
+			description "The words in a multi-word expression."
+		}
+		type {
+			type "String or URI"
+			description "The specific type of semantic annotation (GO, USAS, etc.)"
 		}
 	}
 }
@@ -617,6 +625,13 @@ Datatypes {
 	            list itemType:'xs:anyURI'
 	        }
 	    }
+	}
+	simple('string_list') {
+		restriction {
+			simpleType {
+				list itemType:'xs:string'
+			}
+		}
 	}
 	complex('morphology') {
 	    sequence {

@@ -298,8 +298,8 @@ matches {
     description 'Semantic tags.'
 }
 
-'tags-sem-asus' {
-    uri ns('tagset/sem#asus')
+'tags-sem-usas' {
+    uri ns('tagset/sem#usas')
     description 'Semantic tags from the UCREL Semantic Analysis System (USAS, <link>http://ucrel.lancs.ac.uk/usas/</link>. The full list of 232 tags is at <link>http://ucrel.lancs.ac.uk/usas/semtags.txt</link>.'
 }
 

@@ -199,17 +199,17 @@ matches {
     description 'The Penn Treebank part-of-speech tag set used by the TreeTagger, which has a few more tags, see <link>https://dkpro.github.io/dkpro-core/releases/1.8.0/docs/tagset-reference.html#tagset-en-ptb-tt-pos</link>.'
 }
 
-'tag-pos-claws5' {
+'tags-pos-claws5' {
     uri ns('tagset/pos#claws5')
     description 'The C5 tagset for the <a href="http://ucrel.lancs.ac.uk/claws/">CLAWS part-of-speech tagger</a>, with 62 tags. See <link>http://ucrel.lancs.ac.uk/claws5tags.html</link>.'
 }
 
-'tag-pos-claws6' {
+'tags-pos-claws6' {
     uri ns('tagset/pos#claws6')
     description 'The C6 tagset for the <a href="http://ucrel.lancs.ac.uk/claws/">CLAWS part-of-speech tagger</a>, with 148 tags. See <link>http://ucrel.lancs.ac.uk/claws6tags.html</link>.'
 }
 
-'tag-pos-claws7' {
+'tags-pos-claws7' {
     uri ns('tagset/pos#claws7')
     description 'The C7 tagset for the <a href="http://ucrel.lancs.ac.uk/claws/">CLAWS part-of-speech tagger</a>, with 137 tags. This is the CLAWS6 tagset minus 11 punctuation tags. See <link>http://ucrel.lancs.ac.uk/claws7tags.html</link>.'
 }

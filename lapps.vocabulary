@@ -298,11 +298,6 @@ Token {
             description "Orthographic properties of the token such as LowerCase, UpperCase, UpperInitial, etc. Ideally a URI referencing a pre-defined descriptor."
             discriminator true
         }
-        morph {
-        	type XSD.morphology
-        	description "Morphology"
-        	discriminator true
-        }
         length {
             type "Integer"
             description "The length of the token"

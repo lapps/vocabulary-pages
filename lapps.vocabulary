@@ -615,21 +615,21 @@ AudioDocument {
  * XML Schema using a Groovy MarkupBuilder
  */
 Datatypes {
-	simple('list_uri') {
+	simpleType('list_uri') {
 	    restriction {
 	        simpleType {
 	            list itemType:'xs:anyURI'
 	        }
 	    }
 	}
-	simple('string_list') {
+	simpleType('string_list') {
 		restriction {
 			simpleType {
 				list itemType:'xs:string'
 			}
 		}
 	}
-	complex('morphology') {
+	complexType('morphology') {
 	    sequence {
 	        element name:'majorWordClass', type:'xs:string'
 	        element name:'wordClass', type:'xs:string'

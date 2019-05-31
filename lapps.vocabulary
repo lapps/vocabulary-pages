@@ -611,7 +611,8 @@ AudioDocument {
 }
 
 /*
- * Custom types used to generate the XML Schema
+ * Custom types used to generate the XML Schema. This format is actually
+ * XML Schema using a Groovy MarkupBuilder
  */
 Datatypes {
 	simple('list_uri') {

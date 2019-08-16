@@ -130,7 +130,7 @@ html {
                         }
                         table(class: 'definition-table') {
                             tr {
-                                th class:'fixed', "Features"
+                                th class:'fixed', "Feature"
                                 th class:'fixed', "Type"
                                 th "Description"
                             }
@@ -168,7 +168,7 @@ html {
                         }
                         table(class: 'definition-table') {
                             tr {
-                                th class:'fixed', "Features"
+                                th class:'fixed', "Feature"
                                 th class:'fixed', "Type"
                                 th "Description"
                             }

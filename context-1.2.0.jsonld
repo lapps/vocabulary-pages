@@ -1,0 +1,98 @@
+{
+  "@context" : {
+
+    "@vocab" : "http://vocab.lappsgrid.org/",
+
+    "meta" : "http://vocab.lappsgrid.org/metadata/",
+    "lif" : "http://vocab.lappsgrid.org/interchange/",
+    "types" : "http://vocab.lappsgrid.org/types/",
+
+    "metadata" : "meta:metadata",
+    "version" : "meta:version",
+    "contains" : "meta:contains",
+
+    "text" : "lif:text",
+    "views" : "lif:views",
+    "annotations" : "lif:annotations",
+    "features" : "lif:features",
+
+    "tokenization" : "types:tokenization/",
+    "tagset" : "types:tagset/",
+    "ner" : "types:ner/",
+    "coref" : "types:coref/",
+    "chunk" : "types:chunk/",
+
+    "annotation" : "http://vocab.lappsgrid.org/Annotation#",
+    "producer" : "annotation:producer",
+    "rules" : {
+      "@id" : "annotation:rules",
+      "@type" : "@id" },
+    "type" : {
+      "@id" : "annotation:type",
+      "@type" : "@id" },
+    "id" : "annotation:id",
+
+    "region": "http://vocab.lappsgrid.org/Region#",
+    "start" : "region:start",
+    "end" : "region:end",
+    "targets" : "region:targets",
+
+    "sentence": "http://vocab.lappsgrid.org/Sentence#",
+    "sentenceType" : "sentence:sentenceType",
+
+    "vchunk": "http://vocab.lappsgrid.org/VerbChunk#",
+    "vcType" : "vchunk:vcType",
+    "tense" : "vchunk:tense",
+    "voice" : "vchunk:voice",
+    "neg" : "vchunk:neg",
+
+    "ne": "http://vocab.lappsgrid.org/namedEntity#",
+    "namedEntityCategorySet" : "ne:namedEntityCategorySet",
+    "category" : "ne:category",
+    "netype" : "ne:type",
+    "gender" : "ne:gender",
+
+    "token" : "http://vocab.lappsgrid.org/Token#",
+    "posTagSet" : "token:posTagSet",
+    "pos" : "token:pos",
+    "lemma" : "token:lemma",
+    "tokenType" : "token:tokenType",
+    "word" : "token:word",
+    "length" : "token:length",
+    "orth" : "token:orth",
+
+    "rel": "http://vocab.lappsgrid.org/Relation#",
+    "label": "rel:label",
+
+    "genrel": "http://vocab.lappsgrid.org/GenericRelation#",
+    "relation" : "genrel:relation",
+    "arguments" : "genrel:arguments",
+
+    "role": "http://vocab.lappsgrid.org/SemanticRole#",
+    "head" : "role:head",
+    "argument" : "role:argument",
+
+    "coreference": "http://vocab.lappsgrid.org/Coreference#",
+    "mentions" : "coreference:mentions",
+    "representative" : "coreference:representative",
+
+    "constituent": "http://vocab.lappsgrid.org/Consituent#",
+    "parent" : "constituent:parent",
+    "children" : "constituent:children",
+
+    "dependency": "http://vocab.lappsgrid.org/Dependency#",
+    "governor" : "dependency:governor",
+    "dependent" : "dependency:dependent",
+
+    "phrasestruct": "http://vocab.lappsgrid.org/PhraseStructure#",
+    "categorySet" : "phrasestruct:categorySet",
+    "constituents" : "phrasestruct:constituents",
+    "root" : "phrasestruct:root",
+
+    "depstruct": "http://vocab.lappsgrid.org/DependencyStructure#",
+    "dependencySet" : "depstruct:dependencySet",
+    "dependencyType" : "depstruct:dependencyType",
+    "dependencies" : "depstruct:dependencies"
+
+  }
+}

@@ -130,7 +130,7 @@ html {
                         }
                         table(class: 'definition-table') {
                             tr {
-                                th class:'fixed', "Properties"
+                                th class:'fixed', "Feature"
                                 th class:'fixed', "Type"
                                 th "Description"
                             }
@@ -157,18 +157,18 @@ html {
                     if (node.properties.size() > 0) {
 //                        String link = "<a href='${element.name}'>${element.name}</a>"
                         if (headline) {
-                            h1 'Properties'
+                            h1 'Features'
                             headline = false
                         }
                         if (node.name != element.name) {
                             h2 {
-                                span "Properties from "
+                                span "Features from "
                                 a(href:"${node.name}.html", node.name)
                             }
                         }
                         table(class: 'definition-table') {
                             tr {
-                                th class:'fixed', "Properties"
+                                th class:'fixed', "Feature"
                                 th class:'fixed', "Type"
                                 th "Description"
                             }
